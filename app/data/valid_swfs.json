@@ -1,0 +1,3806 @@
+[
+  {
+    "name": "acuarium",
+    "filename": "acuarium.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "ades",
+    "filename": "ades.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "aeropuerto",
+    "filename": "aeropuerto.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "aesthetic",
+    "filename": "aesthetic.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "albumPanini",
+    "filename": "albumPanini.swf",
+    "folder": "assets",
+    "item_count": 44
+  },
+  {
+    "name": "alcohol",
+    "filename": "alcohol.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "altar",
+    "filename": "altar.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "angeles",
+    "filename": "angeles.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "animalPrint",
+    "filename": "animalPrint.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "animals",
+    "filename": "animals.swf",
+    "folder": "assets",
+    "item_count": 39
+  },
+  {
+    "name": "animalsCostumes",
+    "filename": "animalsCostumes.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "animatedClothes",
+    "filename": "animatedClothes.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "anime",
+    "filename": "anime.swf",
+    "folder": "assets",
+    "item_count": 63
+  },
+  {
+    "name": "animeClothes",
+    "filename": "animeClothes.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "animus",
+    "filename": "animus.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "aniversario",
+    "filename": "aniversario.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "aniversario11",
+    "filename": "aniversario11.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "aniversario4",
+    "filename": "aniversario4.swf",
+    "folder": "assets",
+    "item_count": 49
+  },
+  {
+    "name": "anoNuevo2016",
+    "filename": "anoNuevo2016.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "anteojos2019",
+    "filename": "anteojos2019.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "antiques",
+    "filename": "antiques.swf",
+    "folder": "assets",
+    "item_count": 106
+  },
+  {
+    "name": "apariciones",
+    "filename": "apariciones.swf",
+    "folder": "assets",
+    "item_count": 84
+  },
+  {
+    "name": "appTecno",
+    "filename": "appTecno.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "arab",
+    "filename": "arab.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "arcor",
+    "filename": "arcor.swf",
+    "folder": "assets",
+    "item_count": 59
+  },
+  {
+    "name": "artGallery",
+    "filename": "artGallery.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "atlantis",
+    "filename": "atlantis.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "atlantisQuest",
+    "filename": "atlantisQuest.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "ba",
+    "filename": "ba.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "baggio",
+    "filename": "baggio.swf",
+    "folder": "assets",
+    "item_count": 50
+  },
+  {
+    "name": "balloons",
+    "filename": "balloons.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "banderas2018",
+    "filename": "banderas2018.swf",
+    "folder": "assets",
+    "item_count": 44
+  },
+  {
+    "name": "barbie",
+    "filename": "barbie.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "barEspacial",
+    "filename": "barEspacial.swf",
+    "folder": "assets",
+    "item_count": 49
+  },
+  {
+    "name": "barrilete",
+    "filename": "barrilete.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "bathroom",
+    "filename": "bathroom.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "bazar",
+    "filename": "bazar.swf",
+    "folder": "assets",
+    "item_count": 61
+  },
+  {
+    "name": "beach",
+    "filename": "beach.swf",
+    "folder": "assets",
+    "item_count": 61
+  },
+  {
+    "name": "beachStore",
+    "filename": "beachStore.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "beds",
+    "filename": "beds.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "benches",
+    "filename": "benches.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "bicentenario",
+    "filename": "bicentenario.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "bombero",
+    "filename": "bombero.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "bombos",
+    "filename": "bombos.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "bosqueMagico",
+    "filename": "bosqueMagico.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "bossFinal",
+    "filename": "bossFinal.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "bruja",
+    "filename": "bruja.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "buyStore",
+    "filename": "buyStore.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "caballos",
+    "filename": "caballos.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "cafeteria",
+    "filename": "cafeteria.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "cages",
+    "filename": "cages.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "campamento",
+    "filename": "campamento.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "canierias",
+    "filename": "canierias.swf",
+    "folder": "assets",
+    "item_count": 44
+  },
+  {
+    "name": "carnaval2020",
+    "filename": "carnaval2020.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "carnival",
+    "filename": "carnival.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "carnival2",
+    "filename": "carnival2.swf",
+    "folder": "assets",
+    "item_count": 37
+  },
+  {
+    "name": "carnival3",
+    "filename": "carnival3.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "carpets",
+    "filename": "carpets.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "cars",
+    "filename": "cars.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "casaRaton",
+    "filename": "casaRaton.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "cassettes",
+    "filename": "cassettes.swf",
+    "folder": "assets",
+    "item_count": 52
+  },
+  {
+    "name": "catalogoRock",
+    "filename": "catalogoRock.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "cave",
+    "filename": "cave.swf",
+    "folder": "assets",
+    "item_count": 31
+  },
+  {
+    "name": "cazadoresEspacio",
+    "filename": "cazadoresEspacio.swf",
+    "folder": "assets",
+    "item_count": 30
+  },
+  {
+    "name": "cheetos",
+    "filename": "cheetos.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "china",
+    "filename": "china.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "christmas",
+    "filename": "christmas.swf",
+    "folder": "assets",
+    "item_count": 83
+  },
+  {
+    "name": "christmas2",
+    "filename": "christmas2.swf",
+    "folder": "assets",
+    "item_count": 48
+  },
+  {
+    "name": "christmas2014",
+    "filename": "christmas2014.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "christmas2021",
+    "filename": "christmas2021.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "christmas2022",
+    "filename": "christmas2022.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "christmas2023",
+    "filename": "christmas2023.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "christmas2024",
+    "filename": "christmas2024.swf",
+    "folder": "assets",
+    "item_count": 52
+  },
+  {
+    "name": "christmasClothes",
+    "filename": "christmasClothes.swf",
+    "folder": "assets",
+    "item_count": 29
+  },
+  {
+    "name": "christmasClothes2",
+    "filename": "christmasClothes2.swf",
+    "folder": "assets",
+    "item_count": 53
+  },
+  {
+    "name": "ciguenas",
+    "filename": "ciguenas.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "ciguenasPack",
+    "filename": "ciguenasPack.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "cine",
+    "filename": "cine.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "cinema",
+    "filename": "cinema.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "circus",
+    "filename": "circus.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "city",
+    "filename": "city.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "city2",
+    "filename": "city2.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "claro",
+    "filename": "claro.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "clothes1",
+    "filename": "clothes1.swf",
+    "folder": "assets",
+    "item_count": 213
+  },
+  {
+    "name": "clothesZero",
+    "filename": "clothesZero.swf",
+    "folder": "assets",
+    "item_count": 36
+  },
+  {
+    "name": "clothesZero2",
+    "filename": "clothesZero2.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "clothesZero3",
+    "filename": "clothesZero3.swf",
+    "folder": "assets",
+    "item_count": 80
+  },
+  {
+    "name": "club",
+    "filename": "club.swf",
+    "folder": "assets",
+    "item_count": 102
+  },
+  {
+    "name": "cocina",
+    "filename": "cocina.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "codeMachines",
+    "filename": "codeMachines.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "codigos",
+    "filename": "codigos.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "comerciales",
+    "filename": "comerciales.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "comisaria",
+    "filename": "comisaria.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "common",
+    "filename": "common.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "computer",
+    "filename": "computer.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "concursoRemeras1",
+    "filename": "concursoRemeras1.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "concursoRemeras2",
+    "filename": "concursoRemeras2.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "construction",
+    "filename": "construction.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "copatoons",
+    "filename": "copatoons.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "coronacion",
+    "filename": "coronacion.swf",
+    "folder": "assets",
+    "item_count": 45
+  },
+  {
+    "name": "costumes",
+    "filename": "costumes.swf",
+    "folder": "assets",
+    "item_count": 141
+  },
+  {
+    "name": "costumes2",
+    "filename": "costumes2.swf",
+    "folder": "assets",
+    "item_count": 84
+  },
+  {
+    "name": "costumes3",
+    "filename": "costumes3.swf",
+    "folder": "assets",
+    "item_count": 56
+  },
+  {
+    "name": "costumes4",
+    "filename": "costumes4.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "costumesAnimals",
+    "filename": "costumesAnimals.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "costumesHalloween",
+    "filename": "costumesHalloween.swf",
+    "folder": "assets",
+    "item_count": 59
+  },
+  {
+    "name": "costumesVip",
+    "filename": "costumesVip.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "cottage",
+    "filename": "cottage.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "cumple2016",
+    "filename": "cumple2016.swf",
+    "folder": "assets",
+    "item_count": 66
+  },
+  {
+    "name": "cumpleNik",
+    "filename": "cumpleNik.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "cupido",
+    "filename": "cupido.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "customParty",
+    "filename": "customParty.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "customToys",
+    "filename": "customToys.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "depot",
+    "filename": "depot.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "desastre",
+    "filename": "desastre.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "diner",
+    "filename": "diner.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "dinosaur",
+    "filename": "dinosaur.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "discoteca",
+    "filename": "discoteca.swf",
+    "folder": "assets",
+    "item_count": 62
+  },
+  {
+    "name": "dragones",
+    "filename": "dragones.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "drawing",
+    "filename": "drawing.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "earthDay",
+    "filename": "earthDay.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "easter",
+    "filename": "easter.swf",
+    "folder": "assets",
+    "item_count": 47
+  },
+  {
+    "name": "easter2",
+    "filename": "easter2.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "easter2015",
+    "filename": "easter2015.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "easter2016",
+    "filename": "easter2016.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "easter2021",
+    "filename": "easter2021.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "easter2022",
+    "filename": "easter2022.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "easter2023",
+    "filename": "easter2023.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "easter3",
+    "filename": "easter3.swf",
+    "folder": "assets",
+    "item_count": 29
+  },
+  {
+    "name": "easter4",
+    "filename": "easter4.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "easterCostumes",
+    "filename": "easterCostumes.swf",
+    "folder": "assets",
+    "item_count": 56
+  },
+  {
+    "name": "egipto",
+    "filename": "egipto.swf",
+    "folder": "assets",
+    "item_count": 56
+  },
+  {
+    "name": "egyptCostumes",
+    "filename": "egyptCostumes.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "elementos",
+    "filename": "elementos.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "emoClothes",
+    "filename": "emoClothes.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "equipaje",
+    "filename": "equipaje.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "escuela",
+    "filename": "escuela.swf",
+    "folder": "assets",
+    "item_count": 55
+  },
+  {
+    "name": "escuelaBaggio",
+    "filename": "escuelaBaggio.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "escuelaNueva",
+    "filename": "escuelaNueva.swf",
+    "folder": "assets",
+    "item_count": 59
+  },
+  {
+    "name": "espacio",
+    "filename": "espacio.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "esperanzaMia",
+    "filename": "esperanzaMia.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "estaciones",
+    "filename": "estaciones.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "estadio",
+    "filename": "estadio.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "estanterias",
+    "filename": "estanterias.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "estrella",
+    "filename": "estrella.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "extraterrestres",
+    "filename": "extraterrestres.swf",
+    "folder": "assets",
+    "item_count": 31
+  },
+  {
+    "name": "faber",
+    "filename": "faber.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "fabrica",
+    "filename": "fabrica.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "fancyClothes",
+    "filename": "fancyClothes.swf",
+    "folder": "assets",
+    "item_count": 36
+  },
+  {
+    "name": "faro",
+    "filename": "faro.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "fashion",
+    "filename": "fashion.swf",
+    "folder": "assets",
+    "item_count": 56
+  },
+  {
+    "name": "fashion2017",
+    "filename": "fashion2017.swf",
+    "folder": "assets",
+    "item_count": 50
+  },
+  {
+    "name": "fashion_basicos",
+    "filename": "fashion_basicos.swf",
+    "folder": "assets",
+    "item_count": 143
+  },
+  {
+    "name": "fashion_halloween",
+    "filename": "fashion_halloween.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "fashion_mujeres",
+    "filename": "fashion_mujeres.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "fashion_nuevo",
+    "filename": "fashion_nuevo.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "fashion_verano2016_mujeres",
+    "filename": "fashion_verano2016_mujeres.swf",
+    "folder": "assets",
+    "item_count": 47
+  },
+  {
+    "name": "feriaAmericana",
+    "filename": "feriaAmericana.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "fiat",
+    "filename": "fiat.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "fiesta",
+    "filename": "fiesta.swf",
+    "folder": "assets",
+    "item_count": 93
+  },
+  {
+    "name": "fiestaPersonajes",
+    "filename": "fiestaPersonajes.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "finDeAnio2016",
+    "filename": "finDeAnio2016.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "fishes",
+    "filename": "fishes.swf",
+    "folder": "assets",
+    "item_count": 42
+  },
+  {
+    "name": "flowersStore",
+    "filename": "flowersStore.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "food",
+    "filename": "food.swf",
+    "folder": "assets",
+    "item_count": 147
+  },
+  {
+    "name": "freddo",
+    "filename": "freddo.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "funAttic",
+    "filename": "funAttic.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "fx",
+    "filename": "fx.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "gadgets",
+    "filename": "gadgets.swf",
+    "folder": "assets",
+    "item_count": 46
+  },
+  {
+    "name": "gadgets2",
+    "filename": "gadgets2.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "games",
+    "filename": "games.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "gatoons",
+    "filename": "gatoons.swf",
+    "folder": "assets",
+    "item_count": 51
+  },
+  {
+    "name": "gatoonsClothes",
+    "filename": "gatoonsClothes.swf",
+    "folder": "assets",
+    "item_count": 79
+  },
+  {
+    "name": "gatoonsEstatuas",
+    "filename": "gatoonsEstatuas.swf",
+    "folder": "assets",
+    "item_count": 40
+  },
+  {
+    "name": "gatoonsNPC",
+    "filename": "gatoonsNPC.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "gatufashion2019",
+    "filename": "gatufashion2019.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "gatutores",
+    "filename": "gatutores.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "geoGifts",
+    "filename": "geoGifts.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "giacomo",
+    "filename": "giacomo.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "giftStore",
+    "filename": "giftStore.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "gigante",
+    "filename": "gigante.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "gigante2024",
+    "filename": "gigante2024.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "glam",
+    "filename": "glam.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "goblinTrajes",
+    "filename": "goblinTrajes.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "godzillaKingKong",
+    "filename": "godzillaKingKong.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "godzillaKK",
+    "filename": "godzillaKK.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "gorroRojo",
+    "filename": "gorroRojo.swf",
+    "folder": "assets",
+    "item_count": 68
+  },
+  {
+    "name": "granja",
+    "filename": "granja.swf",
+    "folder": "assets",
+    "item_count": 48
+  },
+  {
+    "name": "granjaCatalogo",
+    "filename": "granjaCatalogo.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "greek",
+    "filename": "greek.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "hairdressing",
+    "filename": "hairdressing.swf",
+    "folder": "assets",
+    "item_count": 48
+  },
+  {
+    "name": "hairdressing2024",
+    "filename": "hairdressing2024.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "hairs1",
+    "filename": "hairs1.swf",
+    "folder": "assets",
+    "item_count": 122
+  },
+  {
+    "name": "hairs2",
+    "filename": "hairs2.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "hairsGradient",
+    "filename": "hairsGradient.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "halloween",
+    "filename": "halloween.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "halloween2",
+    "filename": "halloween2.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "halloween2014",
+    "filename": "halloween2014.swf",
+    "folder": "assets",
+    "item_count": 77
+  },
+  {
+    "name": "halloween2015",
+    "filename": "halloween2015.swf",
+    "folder": "assets",
+    "item_count": 80
+  },
+  {
+    "name": "halloween2021",
+    "filename": "halloween2021.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "halloween2022",
+    "filename": "halloween2022.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "halloween2024",
+    "filename": "halloween2024.swf",
+    "folder": "assets",
+    "item_count": 53
+  },
+  {
+    "name": "halloween3",
+    "filename": "halloween3.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "halloween4",
+    "filename": "halloween4.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "halloween5",
+    "filename": "halloween5.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "halloween6",
+    "filename": "halloween6.swf",
+    "folder": "assets",
+    "item_count": 55
+  },
+  {
+    "name": "halloweenClothes",
+    "filename": "halloweenClothes.swf",
+    "folder": "assets",
+    "item_count": 54
+  },
+  {
+    "name": "havana",
+    "filename": "havana.swf",
+    "folder": "assets",
+    "item_count": 29
+  },
+  {
+    "name": "havanna",
+    "filename": "havanna.swf",
+    "folder": "assets",
+    "item_count": 47
+  },
+  {
+    "name": "heartStop",
+    "filename": "heartStop.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "hiscore",
+    "filename": "hiscore.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "hobbit",
+    "filename": "hobbit.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "HomeBackgrounds",
+    "filename": "HomeBackgrounds.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "HomeBackgrounds2",
+    "filename": "HomeBackgrounds2.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "homenajeMaradona",
+    "filename": "homenajeMaradona.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "hotelTransylvania",
+    "filename": "hotelTransylvania.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "huevosdragon",
+    "filename": "huevosdragon.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "hw20Trajes",
+    "filename": "hw20Trajes.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "hype",
+    "filename": "hype.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "ice",
+    "filename": "ice.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "icecream",
+    "filename": "icecream.swf",
+    "folder": "assets",
+    "item_count": 44
+  },
+  {
+    "name": "ingravidez",
+    "filename": "ingravidez.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "insects",
+    "filename": "insects.swf",
+    "folder": "assets",
+    "item_count": 48
+  },
+  {
+    "name": "insects2",
+    "filename": "insects2.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "interacciones",
+    "filename": "interacciones.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "internetClothes",
+    "filename": "internetClothes.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "internetClothes2",
+    "filename": "internetClothes2.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "invierno",
+    "filename": "invierno.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "iphone",
+    "filename": "iphone.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "island",
+    "filename": "island.swf",
+    "folder": "assets",
+    "item_count": 45
+  },
+  {
+    "name": "islandClothes",
+    "filename": "islandClothes.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "islandReliquias",
+    "filename": "islandReliquias.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "islandRuinas",
+    "filename": "islandRuinas.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "jobClothes",
+    "filename": "jobClothes.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "jumbo",
+    "filename": "jumbo.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "jungla",
+    "filename": "jungla.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "jurasicIsland",
+    "filename": "jurasicIsland.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "kimetsuClothes",
+    "filename": "kimetsuClothes.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "kitchen",
+    "filename": "kitchen.swf",
+    "folder": "assets",
+    "item_count": 38
+  },
+  {
+    "name": "kitty",
+    "filename": "kitty.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "laboratorio",
+    "filename": "laboratorio.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "lamps",
+    "filename": "lamps.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "lan",
+    "filename": "lan.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "libroDeLaVida",
+    "filename": "libroDeLaVida.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "live",
+    "filename": "live.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "live2",
+    "filename": "live2.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "llama",
+    "filename": "llama.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "loteria",
+    "filename": "loteria.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "luna",
+    "filename": "luna.swf",
+    "folder": "assets",
+    "item_count": 47
+  },
+  {
+    "name": "madagascar",
+    "filename": "madagascar.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "magia",
+    "filename": "magia.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "maquillajes",
+    "filename": "maquillajes.swf",
+    "folder": "assets",
+    "item_count": 60
+  },
+  {
+    "name": "maquinaArte",
+    "filename": "maquinaArte.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "masks",
+    "filename": "masks.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "medieval",
+    "filename": "medieval.swf",
+    "folder": "assets",
+    "item_count": 48
+  },
+  {
+    "name": "merlinaClothes",
+    "filename": "merlinaClothes.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "millionaire",
+    "filename": "millionaire.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "mime",
+    "filename": "mime.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "minigames",
+    "filename": "minigames.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "misc2018",
+    "filename": "misc2018.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "mobile",
+    "filename": "mobile.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "momia",
+    "filename": "momia.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "monstruos",
+    "filename": "monstruos.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "mostaza",
+    "filename": "mostaza.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "mounstruos",
+    "filename": "mounstruos.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "movistar",
+    "filename": "movistar.swf",
+    "folder": "assets",
+    "item_count": 38
+  },
+  {
+    "name": "mozart",
+    "filename": "mozart.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "mundial",
+    "filename": "mundial.swf",
+    "folder": "assets",
+    "item_count": 39
+  },
+  {
+    "name": "mundialClothes",
+    "filename": "mundialClothes.swf",
+    "folder": "assets",
+    "item_count": 53
+  },
+  {
+    "name": "mundialClothes2",
+    "filename": "mundialClothes2.swf",
+    "folder": "assets",
+    "item_count": 50
+  },
+  {
+    "name": "navidad20",
+    "filename": "navidad20.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "navidad2015",
+    "filename": "navidad2015.swf",
+    "folder": "assets",
+    "item_count": 49
+  },
+  {
+    "name": "navidad20_quest",
+    "filename": "navidad20_quest.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "navidad20_shop",
+    "filename": "navidad20_shop.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "negatividad",
+    "filename": "negatividad.swf",
+    "folder": "assets",
+    "item_count": 40
+  },
+  {
+    "name": "nickelodeon",
+    "filename": "nickelodeon.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "nieve",
+    "filename": "nieve.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "nik",
+    "filename": "nik.swf",
+    "folder": "assets",
+    "item_count": 36
+  },
+  {
+    "name": "ninja",
+    "filename": "ninja.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "nursery",
+    "filename": "nursery.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "olimpicos",
+    "filename": "olimpicos.swf",
+    "folder": "assets",
+    "item_count": 42
+  },
+  {
+    "name": "overchef",
+    "filename": "overchef.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "paintings",
+    "filename": "paintings.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "park",
+    "filename": "park.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "parkCamp",
+    "filename": "parkCamp.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "parkLove",
+    "filename": "parkLove.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "party",
+    "filename": "party.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "pascuas2020",
+    "filename": "pascuas2020.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "peinados",
+    "filename": "peinados.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "pelis2021",
+    "filename": "pelis2021.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "personajes",
+    "filename": "personajes.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "pet",
+    "filename": "pet.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "pet2",
+    "filename": "pet2.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "petCare",
+    "filename": "petCare.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "petClothes",
+    "filename": "petClothes.swf",
+    "folder": "assets",
+    "item_count": 96
+  },
+  {
+    "name": "petFood",
+    "filename": "petFood.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "petShop",
+    "filename": "petShop.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "petToys",
+    "filename": "petToys.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "phones",
+    "filename": "phones.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "photos",
+    "filename": "photos.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "photosOk",
+    "filename": "photosOk.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "picapon",
+    "filename": "picapon.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "picoDulce",
+    "filename": "picoDulce.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "pijamada",
+    "filename": "pijamada.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "piletas",
+    "filename": "piletas.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "piratas",
+    "filename": "piratas.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "pitufos",
+    "filename": "pitufos.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "plant",
+    "filename": "plant.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "plants",
+    "filename": "plants.swf",
+    "folder": "assets",
+    "item_count": 41
+  },
+  {
+    "name": "plaza",
+    "filename": "plaza.swf",
+    "folder": "assets",
+    "item_count": 29
+  },
+  {
+    "name": "plusbelle",
+    "filename": "plusbelle.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "plutonita",
+    "filename": "plutonita.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "pocimaQuest",
+    "filename": "pocimaQuest.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "pools",
+    "filename": "pools.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "popIt",
+    "filename": "popIt.swf",
+    "folder": "assets",
+    "item_count": 44
+  },
+  {
+    "name": "potions",
+    "filename": "potions.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "prehistoric",
+    "filename": "prehistoric.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "premiosPanini",
+    "filename": "premiosPanini.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "primavera2015",
+    "filename": "primavera2015.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "primavera2020",
+    "filename": "primavera2020.swf",
+    "folder": "assets",
+    "item_count": 68
+  },
+  {
+    "name": "prince",
+    "filename": "prince.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "princeClothes",
+    "filename": "princeClothes.swf",
+    "folder": "assets",
+    "item_count": 24
+  },
+  {
+    "name": "princesa",
+    "filename": "princesa.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "privateAticFloors1",
+    "filename": "privateAticFloors1.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "privateAticWalls1",
+    "filename": "privateAticWalls1.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "privateHomeFloors1",
+    "filename": "privateHomeFloors1.swf",
+    "folder": "assets",
+    "item_count": 38
+  },
+  {
+    "name": "privateHomeFloors2",
+    "filename": "privateHomeFloors2.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "privateHomeFloors3",
+    "filename": "privateHomeFloors3.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "privateHomeFloors4",
+    "filename": "privateHomeFloors4.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "privateHomeFloors5",
+    "filename": "privateHomeFloors5.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "privateHomeRoofs1",
+    "filename": "privateHomeRoofs1.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "privateHomeSkys1",
+    "filename": "privateHomeSkys1.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "privateHomeWalls1",
+    "filename": "privateHomeWalls1.swf",
+    "folder": "assets",
+    "item_count": 58
+  },
+  {
+    "name": "privateHomeWalls2",
+    "filename": "privateHomeWalls2.swf",
+    "folder": "assets",
+    "item_count": 27
+  },
+  {
+    "name": "privateHomeWalls3",
+    "filename": "privateHomeWalls3.swf",
+    "folder": "assets",
+    "item_count": 53
+  },
+  {
+    "name": "privateHomeWalls4",
+    "filename": "privateHomeWalls4.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "privateHomeWalls5",
+    "filename": "privateHomeWalls5.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "privateRoom",
+    "filename": "privateRoom.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "privateWalls1",
+    "filename": "privateWalls1.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "profesiones",
+    "filename": "profesiones.swf",
+    "folder": "assets",
+    "item_count": 140
+  },
+  {
+    "name": "promocion",
+    "filename": "promocion.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "pruebas",
+    "filename": "pruebas.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "rancho",
+    "filename": "rancho.swf",
+    "folder": "assets",
+    "item_count": 37
+  },
+  {
+    "name": "reciclaje",
+    "filename": "reciclaje.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "regalos",
+    "filename": "regalos.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "retro",
+    "filename": "retro.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "retroClothes",
+    "filename": "retroClothes.swf",
+    "folder": "assets",
+    "item_count": 68
+  },
+  {
+    "name": "reunion",
+    "filename": "reunion.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "reyes",
+    "filename": "reyes.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "robo",
+    "filename": "robo.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "robots",
+    "filename": "robots.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "rockstar",
+    "filename": "rockstar.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "ruedaAmor",
+    "filename": "ruedaAmor.swf",
+    "folder": "assets",
+    "item_count": 29
+  },
+  {
+    "name": "ruletaPrizes",
+    "filename": "ruletaPrizes.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "salitaMedica",
+    "filename": "salitaMedica.swf",
+    "folder": "assets",
+    "item_count": 32
+  },
+  {
+    "name": "salitaMedicaAssets",
+    "filename": "salitaMedicaAssets.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "sanvalentin",
+    "filename": "sanvalentin.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "sanValentin2023",
+    "filename": "sanValentin2023.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "school",
+    "filename": "school.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "science",
+    "filename": "science.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "sea",
+    "filename": "sea.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "seaFishes",
+    "filename": "seaFishes.swf",
+    "folder": "assets",
+    "item_count": 43
+  },
+  {
+    "name": "seats",
+    "filename": "seats.swf",
+    "folder": "assets",
+    "item_count": 63
+  },
+  {
+    "name": "serenito",
+    "filename": "serenito.swf",
+    "folder": "assets",
+    "item_count": 98
+  },
+  {
+    "name": "serenito2017",
+    "filename": "serenito2017.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "session",
+    "filename": "session.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "signals",
+    "filename": "signals.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "signs",
+    "filename": "signs.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "sky",
+    "filename": "sky.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "snoopy",
+    "filename": "snoopy.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "snow",
+    "filename": "snow.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "sotano",
+    "filename": "sotano.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "space",
+    "filename": "space.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "spooky",
+    "filename": "spooky.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "sportClothes",
+    "filename": "sportClothes.swf",
+    "folder": "assets",
+    "item_count": 93
+  },
+  {
+    "name": "sports",
+    "filename": "sports.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "springClothes",
+    "filename": "springClothes.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "spy",
+    "filename": "spy.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "square",
+    "filename": "square.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "squid",
+    "filename": "squid.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "squidGame",
+    "filename": "squidGame.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "stranger",
+    "filename": "stranger.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "subte",
+    "filename": "subte.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "summer",
+    "filename": "summer.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "summer2016",
+    "filename": "summer2016.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "summer2020",
+    "filename": "summer2020.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "summerClothes",
+    "filename": "summerClothes.swf",
+    "folder": "assets",
+    "item_count": 92
+  },
+  {
+    "name": "superheroes",
+    "filename": "superheroes.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "superHeroes16",
+    "filename": "superHeroes16.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "superHeroesTrajes",
+    "filename": "superHeroesTrajes.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "sweaterClothes",
+    "filename": "sweaterClothes.swf",
+    "folder": "assets",
+    "item_count": 27
+  },
+  {
+    "name": "tables",
+    "filename": "tables.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "taller",
+    "filename": "taller.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "tamagotchi",
+    "filename": "tamagotchi.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "techosDecoracion",
+    "filename": "techosDecoracion.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "tecno",
+    "filename": "tecno.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "teenClothes",
+    "filename": "teenClothes.swf",
+    "folder": "assets",
+    "item_count": 103
+  },
+  {
+    "name": "teenTitans",
+    "filename": "teenTitans.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "telefe",
+    "filename": "telefe.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "test",
+    "filename": "test.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "thThings",
+    "filename": "thThings.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "toys",
+    "filename": "toys.swf",
+    "folder": "assets",
+    "item_count": 75
+  },
+  {
+    "name": "toys2",
+    "filename": "toys2.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "train",
+    "filename": "train.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "transport",
+    "filename": "transport.swf",
+    "folder": "assets",
+    "item_count": 102
+  },
+  {
+    "name": "transport2",
+    "filename": "transport2.swf",
+    "folder": "assets",
+    "item_count": 53
+  },
+  {
+    "name": "tree",
+    "filename": "tree.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "trenFantasma",
+    "filename": "trenFantasma.swf",
+    "folder": "assets",
+    "item_count": 49
+  },
+  {
+    "name": "tribusUrbanas",
+    "filename": "tribusUrbanas.swf",
+    "folder": "assets",
+    "item_count": 43
+  },
+  {
+    "name": "tutorial",
+    "filename": "tutorial.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "unicef",
+    "filename": "unicef.swf",
+    "folder": "assets",
+    "item_count": 49
+  },
+  {
+    "name": "unicefClothes",
+    "filename": "unicefClothes.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "uniforms",
+    "filename": "uniforms.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "vacuna",
+    "filename": "vacuna.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "vampires",
+    "filename": "vampires.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "versus",
+    "filename": "versus.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "viajesCereza",
+    "filename": "viajesCereza.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "viajesDorado",
+    "filename": "viajesDorado.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "viajesJapon",
+    "filename": "viajesJapon.swf",
+    "folder": "assets",
+    "item_count": 54
+  },
+  {
+    "name": "viajesLumiere",
+    "filename": "viajesLumiere.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "viajesSafari",
+    "filename": "viajesSafari.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "virtualGoods",
+    "filename": "virtualGoods.swf",
+    "folder": "assets",
+    "item_count": 100
+  },
+  {
+    "name": "virtualGoods2",
+    "filename": "virtualGoods2.swf",
+    "folder": "assets",
+    "item_count": 65
+  },
+  {
+    "name": "virtualGoods3",
+    "filename": "virtualGoods3.swf",
+    "folder": "assets",
+    "item_count": 72
+  },
+  {
+    "name": "visa",
+    "filename": "visa.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "volcan",
+    "filename": "volcan.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "water",
+    "filename": "water.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "waterPark",
+    "filename": "waterPark.swf",
+    "folder": "assets",
+    "item_count": 33
+  },
+  {
+    "name": "wedding",
+    "filename": "wedding.swf",
+    "folder": "assets",
+    "item_count": 85
+  },
+  {
+    "name": "wedding2",
+    "filename": "wedding2.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "western",
+    "filename": "western.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "winterClothes",
+    "filename": "winterClothes.swf",
+    "folder": "assets",
+    "item_count": 43
+  },
+  {
+    "name": "winterClothes2",
+    "filename": "winterClothes2.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "yetiFiesta",
+    "filename": "yetiFiesta.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "yogurt",
+    "filename": "yogurt.swf",
+    "folder": "assets",
+    "item_count": 88
+  },
+  {
+    "name": "zapatos",
+    "filename": "zapatos.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "zeroZone",
+    "filename": "zeroZone.swf",
+    "folder": "assets",
+    "item_count": 44
+  },
+  {
+    "name": "zodiac",
+    "filename": "zodiac.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "zombies",
+    "filename": "zombies.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "animales2018/deco",
+    "filename": "animales2018/deco.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "animales2018/props",
+    "filename": "animales2018/props.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "animales2018/wears",
+    "filename": "animales2018/wears.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "anoNuevo2017/props",
+    "filename": "anoNuevo2017/props.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "anoNuevo2017/wears",
+    "filename": "anoNuevo2017/wears.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "anoNuevo2018/props",
+    "filename": "anoNuevo2018/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "antro2017/props",
+    "filename": "antro2017/props.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "antro2017/wears",
+    "filename": "antro2017/wears.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "asteroids2018/props",
+    "filename": "asteroids2018/props.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "babosas2018/props",
+    "filename": "babosas2018/props.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "bebes2017/props",
+    "filename": "bebes2017/props.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "bebes2017/wears",
+    "filename": "bebes2017/wears.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "bebes2018/wears",
+    "filename": "bebes2018/wears.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "boca2017/deco",
+    "filename": "boca2017/deco.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "boca2017/props",
+    "filename": "boca2017/props.swf",
+    "folder": "assets",
+    "item_count": 69
+  },
+  {
+    "name": "boca2017/wears",
+    "filename": "boca2017/wears.swf",
+    "folder": "assets",
+    "item_count": 52
+  },
+  {
+    "name": "boca2018/props",
+    "filename": "boca2018/props.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "boca2018/wears",
+    "filename": "boca2018/wears.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "campamento/props",
+    "filename": "campamento/props.swf",
+    "folder": "assets",
+    "item_count": 27
+  },
+  {
+    "name": "carreraEspacial2017/wears",
+    "filename": "carreraEspacial2017/wears.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "cbse/props",
+    "filename": "cbse/props.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "cumpleAnios2018/props",
+    "filename": "cumpleAnios2018/props.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "cumpleAnios2018/wears",
+    "filename": "cumpleAnios2018/wears.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "cute2019/wears",
+    "filename": "cute2019/wears.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "dailyBonus/props",
+    "filename": "dailyBonus/props.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "dailyQuest/maletas",
+    "filename": "dailyQuest/maletas.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "dailyQuest/prizes",
+    "filename": "dailyQuest/prizes.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "dailyQuest/props",
+    "filename": "dailyQuest/props.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "dailyQuest/wears",
+    "filename": "dailyQuest/wears.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "detective/props",
+    "filename": "detective/props.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "detective/wears",
+    "filename": "detective/wears.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "diaNino2017/props",
+    "filename": "diaNino2017/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "diaNino2017/wears",
+    "filename": "diaNino2017/wears.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "diaTrabajador2018/props",
+    "filename": "diaTrabajador2018/props.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "diaTrabajador2018/wears",
+    "filename": "diaTrabajador2018/wears.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "eco/props",
+    "filename": "eco/props.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "escenarioVip/props",
+    "filename": "escenarioVip/props.swf",
+    "folder": "assets",
+    "item_count": 46
+  },
+  {
+    "name": "escenarioVip/wears",
+    "filename": "escenarioVip/wears.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "faro2018/props",
+    "filename": "faro2018/props.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "fashion2019/wears",
+    "filename": "fashion2019/wears.swf",
+    "folder": "assets",
+    "item_count": 109
+  },
+  {
+    "name": "flannys2018/props",
+    "filename": "flannys2018/props.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "galaPremios2017/props",
+    "filename": "galaPremios2017/props.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "galaPremios2017/wears",
+    "filename": "galaPremios2017/wears.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "gatubers/props",
+    "filename": "gatubers/props.swf",
+    "folder": "assets",
+    "item_count": 31
+  },
+  {
+    "name": "gatubers/wears",
+    "filename": "gatubers/wears.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "gatubers2018/props",
+    "filename": "gatubers2018/props.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "gatubers2019/props",
+    "filename": "gatubers2019/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "gatubers2019/wears",
+    "filename": "gatubers2019/wears.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "gatumemes2018/props",
+    "filename": "gatumemes2018/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "gatumemes2018/wears",
+    "filename": "gatumemes2018/wears.swf",
+    "folder": "assets",
+    "item_count": 17
+  },
+  {
+    "name": "gatupacks/abr19",
+    "filename": "gatupacks/abr19.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "gatupacks/hw18",
+    "filename": "gatupacks/hw18.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "gatupacks/mar19",
+    "filename": "gatupacks/mar19.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "gatupacks/may19",
+    "filename": "gatupacks/may19.swf",
+    "folder": "assets",
+    "item_count": 30
+  },
+  {
+    "name": "gatupacks/playa18",
+    "filename": "gatupacks/playa18.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "gatupacks/san19",
+    "filename": "gatupacks/san19.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "gatupacks/showroom",
+    "filename": "gatupacks/showroom.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "gatupacks/showroom2",
+    "filename": "gatupacks/showroom2.swf",
+    "folder": "assets",
+    "item_count": 33
+  },
+  {
+    "name": "gatupacks/xmas18",
+    "filename": "gatupacks/xmas18.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "gatuPotter/props",
+    "filename": "gatuPotter/props.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "gatuPotter/wears",
+    "filename": "gatuPotter/wears.swf",
+    "folder": "assets",
+    "item_count": 33
+  },
+  {
+    "name": "gojira/event",
+    "filename": "gojira/event.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "gojira/props",
+    "filename": "gojira/props.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "gojira/wears",
+    "filename": "gojira/wears.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "gorroRojo2017/props",
+    "filename": "gorroRojo2017/props.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "gorroRojo2017/wears",
+    "filename": "gorroRojo2017/wears.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "halloween2017/deco",
+    "filename": "halloween2017/deco.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "halloween2017/props",
+    "filename": "halloween2017/props.swf",
+    "folder": "assets",
+    "item_count": 71
+  },
+  {
+    "name": "halloween2017/wears",
+    "filename": "halloween2017/wears.swf",
+    "folder": "assets",
+    "item_count": 41
+  },
+  {
+    "name": "halloween2018/album",
+    "filename": "halloween2018/album.swf",
+    "folder": "assets",
+    "item_count": 64
+  },
+  {
+    "name": "halloween2018/props",
+    "filename": "halloween2018/props.swf",
+    "folder": "assets",
+    "item_count": 33
+  },
+  {
+    "name": "halloween2018/props2",
+    "filename": "halloween2018/props2.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "halloween2018/props3",
+    "filename": "halloween2018/props3.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "halloween2018/props4",
+    "filename": "halloween2018/props4.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "halloween2018/props5",
+    "filename": "halloween2018/props5.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "halloween2018/showRoomH18",
+    "filename": "halloween2018/showRoomH18.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "halloween2018/wears",
+    "filename": "halloween2018/wears.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "halloween2023/deco",
+    "filename": "halloween2023/deco.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "halloween2023/props",
+    "filename": "halloween2023/props.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "halloween2023/wears",
+    "filename": "halloween2023/wears.swf",
+    "folder": "assets",
+    "item_count": 13
+  },
+  {
+    "name": "hospital2018/props",
+    "filename": "hospital2018/props.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "html2019/props",
+    "filename": "html2019/props.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "hw20/props",
+    "filename": "hw20/props.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "invisibles/atlantis2018",
+    "filename": "invisibles/atlantis2018.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "invisibles/easter2019",
+    "filename": "invisibles/easter2019.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "invisibles/halloween2018",
+    "filename": "invisibles/halloween2018.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "invisibles/unreleased",
+    "filename": "invisibles/unreleased.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "joyeria2018/wears",
+    "filename": "joyeria2018/wears.swf",
+    "folder": "assets",
+    "item_count": 37
+  },
+  {
+    "name": "kda2018/props",
+    "filename": "kda2018/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "kda2018/wears",
+    "filename": "kda2018/wears.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "laboratorio2018/props",
+    "filename": "laboratorio2018/props.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "laboratorio2018/props2",
+    "filename": "laboratorio2018/props2.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "misionCoronas2018/props",
+    "filename": "misionCoronas2018/props.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "misionCoronas2018/wears",
+    "filename": "misionCoronas2018/wears.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "misionEspacial2017/props",
+    "filename": "misionEspacial2017/props.swf",
+    "folder": "assets",
+    "item_count": 18
+  },
+  {
+    "name": "misionEspacial2017/wears",
+    "filename": "misionEspacial2017/wears.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "monster2019/album",
+    "filename": "monster2019/album.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "monster2019/props",
+    "filename": "monster2019/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "mundial2018/album",
+    "filename": "mundial2018/album.swf",
+    "folder": "assets",
+    "item_count": 89
+  },
+  {
+    "name": "mundial2018/deco",
+    "filename": "mundial2018/deco.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "mundial2018/props",
+    "filename": "mundial2018/props.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "mundial2018/wears",
+    "filename": "mundial2018/wears.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "mundial2022/album",
+    "filename": "mundial2022/album.swf",
+    "folder": "assets",
+    "item_count": 65
+  },
+  {
+    "name": "mundial2022/prizes",
+    "filename": "mundial2022/prizes.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "mundial2022/props",
+    "filename": "mundial2022/props.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "navidad2016/deco",
+    "filename": "navidad2016/deco.swf",
+    "folder": "assets",
+    "item_count": 34
+  },
+  {
+    "name": "navidad2016/props",
+    "filename": "navidad2016/props.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "navidad2016/wears",
+    "filename": "navidad2016/wears.swf",
+    "folder": "assets",
+    "item_count": 41
+  },
+  {
+    "name": "navidad2017/deco",
+    "filename": "navidad2017/deco.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "navidad2017/props",
+    "filename": "navidad2017/props.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "navidad2017/wears",
+    "filename": "navidad2017/wears.swf",
+    "folder": "assets",
+    "item_count": 14
+  },
+  {
+    "name": "navidad2018/album",
+    "filename": "navidad2018/album.swf",
+    "folder": "assets",
+    "item_count": 48
+  },
+  {
+    "name": "navidad2018/guerra",
+    "filename": "navidad2018/guerra.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "navidad2018/props",
+    "filename": "navidad2018/props.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "navidad2018/props2",
+    "filename": "navidad2018/props2.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "navidad2018/props3",
+    "filename": "navidad2018/props3.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "navidad2018/showRoom",
+    "filename": "navidad2018/showRoom.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "navidad2018/wears",
+    "filename": "navidad2018/wears.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "nieve2017/deco",
+    "filename": "nieve2017/deco.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "nieve2017/props",
+    "filename": "nieve2017/props.swf",
+    "folder": "assets",
+    "item_count": 20
+  },
+  {
+    "name": "nieve2017/wears",
+    "filename": "nieve2017/wears.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "nik2019/wears",
+    "filename": "nik2019/wears.swf",
+    "folder": "assets",
+    "item_count": 19
+  },
+  {
+    "name": "parqueDiversiones/deco",
+    "filename": "parqueDiversiones/deco.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "parqueDiversiones/props",
+    "filename": "parqueDiversiones/props.swf",
+    "folder": "assets",
+    "item_count": 43
+  },
+  {
+    "name": "parqueDiversiones/wears",
+    "filename": "parqueDiversiones/wears.swf",
+    "folder": "assets",
+    "item_count": 83
+  },
+  {
+    "name": "party2017/props",
+    "filename": "party2017/props.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "pascuas2017/props",
+    "filename": "pascuas2017/props.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "pascuas2017/wears",
+    "filename": "pascuas2017/wears.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "pascuas2018/props",
+    "filename": "pascuas2018/props.swf",
+    "folder": "assets",
+    "item_count": 46
+  },
+  {
+    "name": "pascuas2018/wears",
+    "filename": "pascuas2018/wears.swf",
+    "folder": "assets",
+    "item_count": 8
+  },
+  {
+    "name": "pascuas2019/props",
+    "filename": "pascuas2019/props.swf",
+    "folder": "assets",
+    "item_count": 47
+  },
+  {
+    "name": "peluqueria2017/props",
+    "filename": "peluqueria2017/props.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "peluqueria2017/wears",
+    "filename": "peluqueria2017/wears.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "peluqueria2018/props",
+    "filename": "peluqueria2018/props.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "pileta2018/props",
+    "filename": "pileta2018/props.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "pileta2018/wears",
+    "filename": "pileta2018/wears.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "playa2019/showroom",
+    "filename": "playa2019/showroom.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "presidentes2019/props",
+    "filename": "presidentes2019/props.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "presidentes2019/wears",
+    "filename": "presidentes2019/wears.swf",
+    "folder": "assets",
+    "item_count": 26
+  },
+  {
+    "name": "privateRoom/beach",
+    "filename": "privateRoom/beach.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "privateRoom/snow",
+    "filename": "privateRoom/snow.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "privateRoom/space",
+    "filename": "privateRoom/space.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "proyectoGatubers/props",
+    "filename": "proyectoGatubers/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "reyes2017/deco",
+    "filename": "reyes2017/deco.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "reyes2017/props",
+    "filename": "reyes2017/props.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "reyes2017/wears",
+    "filename": "reyes2017/wears.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "reyes2018/props",
+    "filename": "reyes2018/props.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "reyes2018/wears",
+    "filename": "reyes2018/wears.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "reyMomo2018/props",
+    "filename": "reyMomo2018/props.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "river2017/deco",
+    "filename": "river2017/deco.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "river2017/props",
+    "filename": "river2017/props.swf",
+    "folder": "assets",
+    "item_count": 61
+  },
+  {
+    "name": "river2017/wears",
+    "filename": "river2017/wears.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "river2018/props",
+    "filename": "river2018/props.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "river2018/wears",
+    "filename": "river2018/wears.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "robo/props",
+    "filename": "robo/props.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "roboMuseo/props",
+    "filename": "roboMuseo/props.swf",
+    "folder": "assets",
+    "item_count": 21
+  },
+  {
+    "name": "roboMuseo/wears",
+    "filename": "roboMuseo/wears.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "sanVal2019/showroom",
+    "filename": "sanVal2019/showroom.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "sanValentin2018/props",
+    "filename": "sanValentin2018/props.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "sanValentin2018/wears",
+    "filename": "sanValentin2018/wears.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "sanValentin2019/props",
+    "filename": "sanValentin2019/props.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "sanValentin2021/final",
+    "filename": "sanValentin2021/final.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "sanValentin2021/props",
+    "filename": "sanValentin2021/props.swf",
+    "folder": "assets",
+    "item_count": 31
+  },
+  {
+    "name": "sanValentin2021/props2",
+    "filename": "sanValentin2021/props2.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "sanValentin2021/quest",
+    "filename": "sanValentin2021/quest.swf",
+    "folder": "assets",
+    "item_count": 35
+  },
+  {
+    "name": "sanValentin2021/wears",
+    "filename": "sanValentin2021/wears.swf",
+    "folder": "assets",
+    "item_count": 11
+  },
+  {
+    "name": "serenito2017/deco",
+    "filename": "serenito2017/deco.swf",
+    "folder": "assets",
+    "item_count": 31
+  },
+  {
+    "name": "serenito2017/props",
+    "filename": "serenito2017/props.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "serenito2017/wears",
+    "filename": "serenito2017/wears.swf",
+    "folder": "assets",
+    "item_count": 38
+  },
+  {
+    "name": "seretubers2017/deco",
+    "filename": "seretubers2017/deco.swf",
+    "folder": "assets",
+    "item_count": 23
+  },
+  {
+    "name": "seretubers2017/props",
+    "filename": "seretubers2017/props.swf",
+    "folder": "assets",
+    "item_count": 25
+  },
+  {
+    "name": "seretubers2017/wears",
+    "filename": "seretubers2017/wears.swf",
+    "folder": "assets",
+    "item_count": 15
+  },
+  {
+    "name": "shopping2017/bazar",
+    "filename": "shopping2017/bazar.swf",
+    "folder": "assets",
+    "item_count": 12
+  },
+  {
+    "name": "shopping2017/localJugueteria",
+    "filename": "shopping2017/localJugueteria.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "shopping2017/localMercadoUrbano",
+    "filename": "shopping2017/localMercadoUrbano.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "shopping2017/localMuebles",
+    "filename": "shopping2017/localMuebles.swf",
+    "folder": "assets",
+    "item_count": 10
+  },
+  {
+    "name": "shopping2017/localPintureria",
+    "filename": "shopping2017/localPintureria.swf",
+    "folder": "assets",
+    "item_count": 9
+  },
+  {
+    "name": "shopping2017/localTransportes",
+    "filename": "shopping2017/localTransportes.swf",
+    "folder": "assets",
+    "item_count": 3
+  },
+  {
+    "name": "shopping2017/localVestidores",
+    "filename": "shopping2017/localVestidores.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "shopping2017/localZapateria",
+    "filename": "shopping2017/localZapateria.swf",
+    "folder": "assets",
+    "item_count": 5
+  },
+  {
+    "name": "shopping2017/props",
+    "filename": "shopping2017/props.swf",
+    "folder": "assets",
+    "item_count": 37
+  },
+  {
+    "name": "slime2018/props",
+    "filename": "slime2018/props.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "subte/props",
+    "filename": "subte/props.swf",
+    "folder": "assets",
+    "item_count": 7
+  },
+  {
+    "name": "superclasico/props",
+    "filename": "superclasico/props.swf",
+    "folder": "assets",
+    "item_count": 16
+  },
+  {
+    "name": "torneo2017/props",
+    "filename": "torneo2017/props.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "underground/props",
+    "filename": "underground/props.swf",
+    "folder": "assets",
+    "item_count": 28
+  },
+  {
+    "name": "usuario2018/props",
+    "filename": "usuario2018/props.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "vestidores/bebes",
+    "filename": "vestidores/bebes.swf",
+    "folder": "assets",
+    "item_count": 1
+  },
+  {
+    "name": "vestidores/pascuas",
+    "filename": "vestidores/pascuas.swf",
+    "folder": "assets",
+    "item_count": 2
+  },
+  {
+    "name": "vestidores/props",
+    "filename": "vestidores/props.swf",
+    "folder": "assets",
+    "item_count": 4
+  },
+  {
+    "name": "vestidores/props2",
+    "filename": "vestidores/props2.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "vueltaCole2018/props",
+    "filename": "vueltaCole2018/props.swf",
+    "folder": "assets",
+    "item_count": 41
+  },
+  {
+    "name": "vueltaCole2018/wears",
+    "filename": "vueltaCole2018/wears.swf",
+    "folder": "assets",
+    "item_count": 22
+  },
+  {
+    "name": "waterPark/deco",
+    "filename": "waterPark/deco.swf",
+    "folder": "assets",
+    "item_count": 6
+  },
+  {
+    "name": "waterPark/wears",
+    "filename": "waterPark/wears.swf",
+    "folder": "assets",
+    "item_count": 38
+  }
+]

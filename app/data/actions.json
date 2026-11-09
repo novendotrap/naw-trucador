@@ -1,0 +1,596 @@
+[
+  {
+    "id": "kick",
+    "name": "kick",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "football",
+    "name": "football",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "jueguito",
+    "name": "jueguito",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "spellfighting",
+    "name": "spellfighting",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "fortnite1",
+    "name": "fortnite1",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "fortnite2",
+    "name": "fortnite2",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "rayos",
+    "name": "rayos",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "pedo",
+    "name": "pedo",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "pedoEnd",
+    "name": "pedoEnd",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "eructo",
+    "name": "eructo",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "eructoEnd",
+    "name": "eructoEnd",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "estornudo",
+    "name": "estornudo",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "estornudoEnd",
+    "name": "estornudoEnd",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "guitar",
+    "name": "guitar",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "guitarLoop",
+    "name": "guitarLoop",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "percussion",
+    "name": "percussion",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "percussionLoop",
+    "name": "percussionLoop",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "horn",
+    "name": "horn",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "gym",
+    "name": "gym",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "gymLoop",
+    "name": "gymLoop",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "phone",
+    "name": "phone",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "phone_loop",
+    "name": "phone_loop",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "eat",
+    "name": "eat",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "drink",
+    "name": "drink",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "icecream",
+    "name": "icecream",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "dig",
+    "name": "dig",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "sweep",
+    "name": "sweep",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "water",
+    "name": "water",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "spray",
+    "name": "spray",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "colouredSpray",
+    "name": "colouredSpray",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "flag",
+    "name": "flag",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "throw",
+    "name": "throw",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "throwUp",
+    "name": "throwUp",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "throwDown",
+    "name": "throwDown",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "showObject",
+    "name": "showObject",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "showObjectOn",
+    "name": "showObjectOn",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "showObjectUp",
+    "name": "showObjectUp",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "get",
+    "name": "get",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "free",
+    "name": "free",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "fish",
+    "name": "fish",
+    "category": "Objeto / Prop en mano",
+    "takes_prop": true
+  },
+  {
+    "id": "dance",
+    "name": "dance",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dance2",
+    "name": "dance2",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dance3",
+    "name": "dance3",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dance4",
+    "name": "dance4",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dance5",
+    "name": "dance5",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "celebrate",
+    "name": "celebrate",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "greet",
+    "name": "greet",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "laugh",
+    "name": "laugh",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "joke",
+    "name": "joke",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "love",
+    "name": "love",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "idea",
+    "name": "idea",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "amazed",
+    "name": "amazed",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "sad",
+    "name": "sad",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "shy",
+    "name": "shy",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "wink",
+    "name": "wink",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dormido",
+    "name": "dormido",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dormido_loop",
+    "name": "dormido_loop",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dormido2",
+    "name": "dormido2",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "dormido2_loop",
+    "name": "dormido2_loop",
+    "category": "Bailes & Emotes",
+    "takes_prop": false
+  },
+  {
+    "id": "run",
+    "name": "run",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "zombieStand",
+    "name": "zombieStand",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "zombieWalk",
+    "name": "zombieWalk",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "jump",
+    "name": "jump",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "superjump",
+    "name": "superjump",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "vertical",
+    "name": "vertical",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "flotando",
+    "name": "flotando",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "nadando",
+    "name": "nadando",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "sit",
+    "name": "sit",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "inAHole",
+    "name": "inAHole",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "loopInAHole",
+    "name": "loopInAHole",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "blank",
+    "name": "blank",
+    "category": "Efectos & Habilidades",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_vuela",
+    "name": "transportStand_vuela",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_vuela",
+    "name": "transportMove_vuela",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_escoba",
+    "name": "transportStand_escoba",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_escoba",
+    "name": "transportMove_escoba",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_gorro",
+    "name": "transportStand_gorro",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_gorro",
+    "name": "transportMove_gorro",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_pogo",
+    "name": "transportStand_pogo",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_pogo",
+    "name": "transportMove_pogo",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_bola",
+    "name": "transportStand_bola",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_bola",
+    "name": "transportMove_bola",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_rollers",
+    "name": "transportStand_rollers",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_rollers",
+    "name": "transportMove_rollers",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_bike",
+    "name": "transportStand_bike",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_bike",
+    "name": "transportMove_bike",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_horse",
+    "name": "transportStand_horse",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_horse",
+    "name": "transportMove_horse",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_moto",
+    "name": "transportStand_moto",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_moto",
+    "name": "transportMove_moto",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_esfera",
+    "name": "transportStand_esfera",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_esfera",
+    "name": "transportMove_esfera",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_balloon",
+    "name": "transportStand_balloon",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_balloon",
+    "name": "transportMove_balloon",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_surf",
+    "name": "transportStand_surf",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_surf",
+    "name": "transportMove_surf",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_nube",
+    "name": "transportStand_nube",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_nube",
+    "name": "transportMove_nube",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportStand_colgante",
+    "name": "transportStand_colgante",
+    "category": "Transporte",
+    "takes_prop": false
+  },
+  {
+    "id": "transportMove_colgante",
+    "name": "transportMove_colgante",
+    "category": "Transporte",
+    "takes_prop": false
+  }
+]

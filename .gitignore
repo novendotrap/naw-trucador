@@ -1,0 +1,26 @@
+# Installed on the user's computer, never upload.
+.runtime/
+**/__pycache__/
+*.py[cod]
+**/node_modules/
+*.log
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Runtime state, generated assets, models and personal data.
+/app/swfs/
+/app/data/*
+!/app/data/actions.json
+!/app/data/assets.xml
+!/app/data/behaviors.json
+!/app/data/swf_catalog_seed.json
+!/app/data/tiendas_catalogs.json
+!/app/data/valid_swfs.json
+!/app/data/mmo_resource_tags/
+/app/data/mmo_resource_tags/*
+!/app/data/mmo_resource_tags/*.xml
+# frontend/dist is intentionally INCLUDED: users do not need to build the UI.

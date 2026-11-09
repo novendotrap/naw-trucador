@@ -1,0 +1,402 @@
+[
+  {
+    "behavior": "shopping2018/vendor05",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "zero3"
+      }
+    ]
+  },
+  {
+    "behavior": "versusAparador",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "vsanime"
+      },
+      {
+        "action": "catalog",
+        "name": "vskpop"
+      }
+    ]
+  },
+  {
+    "behavior": "fashionStand",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "hearthStop"
+      }
+    ]
+  },
+  {
+    "behavior": "aparador2tecno",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "partyMusic2"
+      }
+    ]
+  },
+  {
+    "behavior": "aparador3tecno",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "smartphones"
+      }
+    ]
+  },
+  {
+    "behavior": "aparador4tecno",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "skins"
+      }
+    ]
+  },
+  {
+    "behavior": "beachStoreRasta",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "casaRefrito2018"
+      }
+    ]
+  },
+  {
+    "behavior": "brujaMesa",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "potions2024"
+      }
+    ]
+  },
+  {
+    "behavior": "cafeteriaCrumbl",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "cafeteriaFood"
+      }
+    ]
+  },
+  {
+    "behavior": "cafeteriaGaturro",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "cafeteriaClothes"
+      }
+    ]
+  },
+  {
+    "behavior": "cafeteriaMesada",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "cafeteriaFood"
+      }
+    ]
+  },
+  {
+    "behavior": "catalogZodiac",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "zodiaco"
+      }
+    ]
+  },
+  {
+    "behavior": "cooking",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "bartender"
+      }
+    ]
+  },
+  {
+    "behavior": "dinerMesada",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "bartender"
+      }
+    ]
+  },
+  {
+    "behavior": "discoBoleteria",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "discoBoleteria"
+      }
+    ]
+  },
+  {
+    "behavior": "escuelaCatalogo",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "escuelaRopa"
+      }
+    ]
+  },
+  {
+    "behavior": "flowersStoreCatalog",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "flowersStoreCatalog"
+      }
+    ]
+  },
+  {
+    "behavior": "flowersStoreCatalog2",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "flowersQuest"
+      }
+    ]
+  },
+  {
+    "behavior": "giftStoreAccesorios",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "accesorios"
+      }
+    ]
+  },
+  {
+    "behavior": "giftStoreCages",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "cages"
+      }
+    ]
+  },
+  {
+    "behavior": "giftStoreEfectos",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "efectos"
+      }
+    ]
+  },
+  {
+    "behavior": "giftStorePeceras",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "peceras"
+      }
+    ]
+  },
+  {
+    "behavior": "giftStorePiedras",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "coleccionPiedras"
+      }
+    ]
+  },
+  {
+    "behavior": "hairdressing2024/peluquera",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "peluqueria_roles"
+      }
+    ]
+  },
+  {
+    "behavior": "halloween2018/catalogo",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "halloweenRecycle"
+      }
+    ]
+  },
+  {
+    "behavior": "halloweenCake",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "cake"
+      }
+    ]
+  },
+  {
+    "behavior": "marioneta",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "nocolor"
+      }
+    ]
+  },
+  {
+    "behavior": "modaVeranoFem",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "ofertaVerano_fem"
+      }
+    ]
+  },
+  {
+    "behavior": "modaVeranoMasc",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "ofertaVerano_masc"
+      }
+    ]
+  },
+  {
+    "behavior": "mundial2022/arabe2",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "mundial2022"
+      }
+    ]
+  },
+  {
+    "behavior": "ofertaUtiles",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "compraVenta2021"
+      }
+    ]
+  },
+  {
+    "behavior": "parqueDiversiones/abreTickets",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "ticketsParqueDiversiones"
+      }
+    ]
+  },
+  {
+    "behavior": "petShopAccesorios",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "petShopToys"
+      }
+    ]
+  },
+  {
+    "behavior": "petShopComida",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "petShopFood"
+      }
+    ]
+  },
+  {
+    "behavior": "petShopCunasBebe",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "cunitasBebe"
+      }
+    ]
+  },
+  {
+    "behavior": "petShopRopa",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "mascotas"
+      }
+    ]
+  },
+  {
+    "behavior": "robo/narciso",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "flowersStoreCatalog"
+      }
+    ]
+  },
+  {
+    "behavior": "salitaMedica/presentador2",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "mascotas2"
+      }
+    ]
+  },
+  {
+    "behavior": "skatesStore",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "skates"
+      }
+    ]
+  },
+  {
+    "behavior": "sportsGimnasio",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "gimnasio"
+      }
+    ]
+  },
+  {
+    "behavior": "tablasSurf",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "tablasSurf"
+      }
+    ]
+  },
+  {
+    "behavior": "vacunaBarbijos",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "vacunaBarbijo"
+      }
+    ]
+  },
+  {
+    "behavior": "vueltaCole2018/banderas",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "banderas2018"
+      }
+    ]
+  },
+  {
+    "behavior": "vueltaCole2018/catalogoOtros",
+    "catalogs": [
+      {
+        "action": "catalog",
+        "name": "escuelaOtros"
+      }
+    ]
+  }
+]

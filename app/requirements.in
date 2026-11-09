@@ -1,0 +1,10 @@
+mitmproxy>=12,<13
+Flask>=3,<4
+requests>=2.30,<3
+urllib3>=2,<3
+Pillow>=10,<13
+imagehash>=4.3,<5
+numpy>=1.26,<3
+onnxruntime>=1.17,<2
+huggingface_hub>=0.20,<3
+opencv-python>=4.8,<6

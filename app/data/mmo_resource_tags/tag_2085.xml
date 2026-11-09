@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- screen -->
+	<file value="0dc25668af61a7fce2bad82fb0556263d0b74b6bf1448e06edb3cdbf04bbc653" folder="ui" path="servers.swf"/>
+	<!-- questlog -->
+	<file value="7ecfac9f0b133e37c1964185aae49bd65752382086ca688a85b4276233239081" folder="ui" path="questlog.swf"/>
+	<!-- map -->
+	<file value="535438" folder="map" path="map.swf"/>
+	<!-- news -->
+	<file value="151026" folder="news" path="lastNews.json"/>
+	<!-- npc pets -->
+	<file value="912" folder="npc" path="animusPet.npc"/>
+	<file value="1008" folder="npc" path="dailyQuest/valijaAngelPet.npc"/>
+	<file value="880" folder="npc" path="dailyQuest/valijaConejoPet.npc"/>
+	<file value="2996" folder="npc" path="detective/detective.npc"/>
+	<file value="792" folder="npc" path="gatuPotter/pets.npc"/>
+	<file value="760" folder="npc" path="presidentes2019/guardaespaldas.npc"/>
+	<file value="760" folder="npc" path="sanValentin2021/angelGuardian.npc"/>
+	<file value="1108" folder="npc" path="pets.npc"/>
+	<!-- cfgs -->
+	<file value="021026" folder="cfgs" path="gameplay.json"/>
+	<file value="021026" folder="cfgs" path="locale.json"/>
+	<file value="021026" folder="cfgs" path="team.json"/>
+	<file value="021026" folder="cfgs" path="map/games.json"/>
+	<!-- npc -->
+	<file value="031026" folder="npc" path="halloween2026/catacumba/puente.npc"/>
+	<file value="031026" folder="npc" path="halloween2026/catacumba/void.npc"/>
+	<file value="031026" folder="npc" path="halloween2026/finalboss/grimm.npc"/>
+	<!-- banners -->
+	<file value="281026" folder="banners" path="AvatarsGuiBanner.swf"/>
+	<file value="281026" folder="banners" path="CustomClothBanner.swf"/>
+	<file value="281026" folder="banners" path="museoCuadro.swf"/>
+	<file value="161026" folder="banners" path="ExportAvatarBanner.swf"/>
+	<!-- iphone app -->
+	<file value="230426" folder="content" path="phoneApps/weather.swf"/>
+</resources>

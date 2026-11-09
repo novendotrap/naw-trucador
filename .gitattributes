@@ -1,0 +1,8 @@
+*.bat text eol=crlf
+*.py text eol=lf
+*.cjs text eol=lf
+*.jar binary
+*.swc binary
+*.swf binary
+*.wasm binary
+*.class binary

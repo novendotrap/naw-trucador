@@ -1,0 +1,7 @@
+{
+  "name": "naw-trucador",
+  "version": "3.0.0",
+  "private": true,
+  "main": "desktop/main.cjs",
+  "description": "naw-trucador"
+}
