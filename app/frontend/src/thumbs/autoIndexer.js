@@ -33,7 +33,6 @@ let hostEl = null;
 let loopPromise = null;
 let stopFlag = false;
 let ruffleScriptPromise = null;
-let wantHdUpgrade = false;
 
 function emit() {
   const snap = { ...state };
@@ -147,63 +146,34 @@ async function waitWhileViewerBusy() {
   state.paused = false;
 }
 
-function packMaxWaitMs(pack, expected) {
-  const n = Number(expected) || 0;
-  if (n >= 80) return 2800;
-  if (n >= 30) return 2000;
-  if (n >= 12) return 1500;
-  if (/greek|halloween|christmas|navidad|virtualGoods|clothesZero/i.test(pack || "")) {
-    return 2000;
-  }
-  return 1100;
-}
-
 /**
- * Espera hasta que el pack deje de emitir thumbs (quiet) o se cumpla el techo.
- * Packs vacíos/chicos salen en ~0.4–0.7s en vez de 1.8s fijos.
+ * Give Ruffle time to load the SWF and deliver the first thumbnail, even
+ * when rendering takes longer on a cold cache or a slower computer.
  */
 async function waitForPackThumbs(pack, expected) {
-  const maxMs = packMaxWaitMs(pack, expected);
-  const minMs = 220;
-  const quietMs = 140;
+  const maxMs = expected >= 80 ? 12000 : 6000;
   const start = Date.now();
 
-  await sleep(minMs);
   while (!stopFlag && Date.now() - start < maxMs) {
     if (viewerIsHolding()) return;
     const st = getIndexerThumbStats();
     if (st.pack !== pack) return;
 
-    const silentFor = Date.now() - st.lastAt;
-    const gotEnough =
-      expected > 0 && st.count >= Math.max(1, Math.floor(expected * 0.9));
-
-    if (gotEnough && silentFor >= quietMs && st.pending === 0) {
-      return;
-    }
-    // Sin thumbs: no conviene esperar el max entero
-    if (st.count === 0 && Date.now() - start >= 450 && silentFor >= quietMs) {
-      return;
-    }
-    // Con thumbs y silencio: listo
-    if (st.count > 0 && silentFor >= quietMs && st.pending === 0) {
-      return;
-    }
+    const quietMs = expected > st.count ? 750 : 250;
+    if (st.count > 0 && Date.now() - st.lastAt >= quietMs && st.pending === 0) return;
     await sleep(50);
   }
 }
 
-async function indexLoop() {
+async function indexLoop({ hd, pack: targetPack }) {
   state.running = true;
   state.done = false;
   state.message = "Preparando índice…";
   emit();
 
   try {
-    const hd = wantHdUpgrade;
-    wantHdUpgrade = false;
     const cov = await api.thumbsCoverage(hd);
-    const missing = cov.missing || [];
+    const missing = (cov.missing || []).filter((pack) => !targetPack || pack === targetPack);
     const expectedMap = cov.expected || {};
     state.total = cov.total_packs || 0;
     state.packsDone = cov.done_packs || 0;
@@ -247,8 +217,8 @@ async function indexLoop() {
       const pack = missing[i];
       const expected = Number(expectedMap[pack] || 0);
       state.current = pack;
-      state.index = state.packsDone + i + 1;
-      state.message = `${state.index}/${state.total} · ${pack}`;
+      state.index = i + 1;
+      state.message = `${hd ? "Mejorando miniaturas" : "Indexando"} · ${state.index}/${missing.length} · ${pack}`;
       emit();
 
       setIndexerSearchPack(pack);
@@ -261,6 +231,10 @@ async function indexLoop() {
       }
 
       await waitForPackThumbs(pack, expected);
+      if (viewerIsHolding() && !stopFlag) {
+        i -= 1;
+        continue;
+      }
 
       if (i % 12 === 11) {
         try {
@@ -272,16 +246,22 @@ async function indexLoop() {
     }
 
     try {
-      await api.thumbsReindex();
+      if (!targetPack) await api.thumbsReindex();
       const st = await api.thumbsStats();
       state.thumbs = st.thumbs || 0;
     } catch (_) {}
 
     state.done = !stopFlag;
     state.current = "";
+    const updated = hd && !stopFlag ? await api.thumbsCoverage(true) : null;
+    const remaining = updated?.stale_packs || 0;
     state.message = stopFlag
       ? `Indexado detenido · ${state.thumbs} thumbs`
-      : `Índice listo · ${state.thumbs} thumbs`;
+      : targetPack && updated?.missing?.includes(targetPack)
+        ? `Quedan miniaturas por actualizar en ${targetPack}`
+        : remaining
+          ? `Quedan ${remaining} packs con miniaturas antiguas`
+          : `Índice listo · ${state.thumbs} thumbs`;
   } catch (e) {
     state.message = e.message || "Error indexando";
     console.warn("[AutoIndexer]", e);
@@ -298,11 +278,10 @@ async function indexLoop() {
 }
 
 /** Arranca indexado de packs faltantes (vacíos/incompletos). No resetea lo ya capturado. */
-export function startAutoIndexer({ hd = false } = {}) {
-  stopFlag = false;
-  wantHdUpgrade = !!hd;
+export function startAutoIndexer({ hd = false, pack = "" } = {}) {
   if (loopPromise) return loopPromise;
-  loopPromise = indexLoop();
+  stopFlag = false;
+  loopPromise = indexLoop({ hd, pack });
   return loopPromise;
 }
 

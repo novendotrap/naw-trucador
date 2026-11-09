@@ -219,8 +219,6 @@ def _pack_is_fresh(pack_items: List[Dict[str, Any]]) -> bool:
         return False
     # Meta without capture_max/max_edge = pre-upgrade 38px corpus → recapture.
     for it in pack_items:
-        if int(it.get("capture_max") or 0) >= CAPTURE_MAX:
-            continue
         if int(it.get("max_edge") or 0) > STALE_MAX_EDGE:
             continue
         return False

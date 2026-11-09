@@ -319,7 +319,7 @@ def api_thumbs_file():
     if not png:
         return Response(status=404)
     resp = Response(png, mimetype="image/png")
-    resp.headers["Cache-Control"] = "public, max-age=86400"
+    resp.headers["Cache-Control"] = "no-store"
     return resp
 
 

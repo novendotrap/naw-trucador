@@ -32,6 +32,7 @@ let bridgeMode = "viewer"; // "viewer" | "indexer"
 let viewerHoldUntil = 0;
 let bound = false;
 let ingestTimer = null;
+let ingestInFlight = false;
 let indexerThumbCount = 0;
 let indexerLastThumbAt = 0;
 let indexerStartedAt = 0;
@@ -125,7 +126,7 @@ export function getIndexerThumbStats() {
     count: indexerThumbCount,
     lastAt: indexerLastThumbAt,
     startedAt: indexerStartedAt,
-    pending: ingestPending.size,
+    pending: ingestPending.size + Number(ingestInFlight),
   };
 }
 
@@ -169,7 +170,7 @@ function queueIngest(pack, name, dataUrl) {
   const key = thumbKey(pack, name);
   if (INGESTED.has(key)) return;
   ingestPending.set(key, { pack, name, png: dataUrl });
-  if (ingestTimer) return;
+  if (ingestTimer || ingestInFlight) return;
   // Indexador: flush casi inmediato. Visor: debounce un poco más.
   const delay = bridgeMode === "indexer" ? 80 : 350;
   ingestTimer = setTimeout(flushIngest, delay);
@@ -178,7 +179,8 @@ function queueIngest(pack, name, dataUrl) {
 async function flushIngest() {
   ingestTimer = null;
   if (!ingestPending.size) return;
-  const batch = Array.from(ingestPending.values()).slice(0, 120);
+  const batch = Array.from(ingestPending.values()).slice(0, 80);
+  ingestInFlight = true;
   for (const row of batch) {
     ingestPending.delete(thumbKey(row.pack, row.name));
   }
@@ -194,6 +196,7 @@ async function flushIngest() {
   } catch (_) {
     // silencioso
   }
+  ingestInFlight = false;
   if (ingestPending.size) {
     ingestTimer = setTimeout(flushIngest, bridgeMode === "indexer" ? 60 : 250);
   }

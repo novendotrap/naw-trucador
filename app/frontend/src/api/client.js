@@ -62,7 +62,7 @@ export const api = {
   thumbUrl: (pack, name) =>
     `/api/assets/thumb?pack=${encodeURIComponent(pack)}&name=${encodeURIComponent(name)}`,
   cachedThumbUrl: (pack, name) =>
-    `/api/thumbs/file?pack=${encodeURIComponent(pack)}&name=${encodeURIComponent(name)}`,
+    `/api/thumbs/file?pack=${encodeURIComponent(pack)}&name=${encodeURIComponent(name)}&v=2`,
 
   thumbsStats: () => request("/api/thumbs/stats"),
   thumbsCoverage: (include_stale = false) =>

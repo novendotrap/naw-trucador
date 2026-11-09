@@ -4,7 +4,7 @@ import { api } from "../api/client";
 import { useToast } from "../hooks/useToast";
 import QtyModal from "../components/QtyModal";
 import ImageSearchModal from "../components/ImageSearchModal";
-import RuffleStage, { requestPackThumbs, refreshSharedStage } from "../components/RuffleStage";
+import RuffleStage, { refreshSharedStage } from "../components/RuffleStage";
 import Field from "../components/Field";
 import ErrorBoundary from "../components/ErrorBoundary";
 import ItemThumb from "../components/ItemThumb";
@@ -13,10 +13,11 @@ import {
   getCachedThumb,
   noteViewerActivity,
   releaseViewerHold,
-  setThumbSearchPack,
 } from "../thumbs/bridge";
 import {
+  getIndexerState,
   resumeAutoIndexer,
+  startAutoIndexer,
   stopAutoIndexer,
   subscribeIndexer,
 } from "../thumbs/autoIndexer";
@@ -250,17 +251,31 @@ export default function ObjetosPage({
     };
   }, [objectQ, theme]);
 
-  // Al cerrar el modal de slots, el 2º Ruffle a veces deja el bridge flojo:
-  // re-disparar thumbs + preview del pack actual.
+  // Al cerrar el modal de slots, refrescar el visor compartido.
   useEffect(() => {
     if (slotPick) return undefined;
     if (!pack) return undefined;
     const t = setTimeout(() => {
-      requestPackThumbs(pack);
       refreshSharedStage();
     }, 250);
     return () => clearTimeout(t);
   }, [slotPick, pack]);
+
+  const needsPackThumbs = !!pack && (
+    coverageData?.missing?.includes(pack) || coverageData?.stale?.includes(pack)
+  );
+  useEffect(() => {
+    if (!needsPackThumbs) return undefined;
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      if (getIndexerState().running) await startAutoIndexer();
+      if (!cancelled) await startAutoIndexer({ hd: true, pack });
+    }, 350);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [pack, needsPackThumbs]);
 
   const filteredSwfs = useMemo(() => {
     const q = swfQ.trim().toLowerCase();
@@ -368,12 +383,6 @@ export default function ObjetosPage({
     if (!opts.keepPreview) setPreview(null);
     setItems([]);
     setLoadingPack(true);
-    setThumbSearchPack(clean);
-    // Avoid hammering CPU with Flash rasterization if thumbs are already on disk
-    const isAlreadyDone = coverageData?.done?.includes(clean);
-    if (!isAlreadyDone) {
-      requestPackThumbs(clean);
-    }
     try {
       const data = await api.inspectSwf(clean);
       if (!data.ok) throw new Error(data.error || "No se pudo leer");
@@ -798,7 +807,7 @@ export default function ObjetosPage({
                 alignItems: "center",
                 gap: "4px",
               }}
-              title="Todos los 747 packs de Mundo Gaturro ya están indexados y verificados."
+              title="Todos los packs disponibles tienen cobertura en el índice."
             >
               ✓ Índice completo
             </span>
@@ -814,6 +823,20 @@ export default function ObjetosPage({
               title="Solo packs sin thumbs o incompletos. Los que ya están no se resetean."
             >
               Indexar faltantes
+            </button>
+          )}
+          {!indexer.running && coverageData?.stale_packs > 0 && (
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm"
+              disabled={ioBusy}
+              onClick={() => {
+                releaseViewerHold();
+                resumeAutoIndexer({ hd: true }).then(refreshThumbStats);
+              }}
+              title={`Recaptura miniaturas de ${coverageData.stale_packs} packs en segundo plano`}
+            >
+              Mejorar miniaturas
             </button>
           )}
           <button
