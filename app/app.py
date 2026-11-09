@@ -435,27 +435,23 @@ def api_thumbs_ingest_batch():
     items = data.get("items") or []
     if not isinstance(items, list) or not items:
         return jsonify({"ok": False, "error": "items vacío"}), 400
-    saved = 0
-    errors = 0
+    batch = []
     for row in items[:80]:
         if not isinstance(row, dict):
-            errors += 1
             continue
         pack = (row.get("pack") or "").strip()
         name = (row.get("name") or row.get("item") or "").strip()
         png = row.get("png") or row.get("thumb") or row.get("image") or ""
-        res = thumb_store.save_data_url(pack, name, png, source="flash")
-        if not res.get("ok"):
-            errors += 1
-            continue
-        saved += 1
+        batch.append((pack, name, png))
+    saved = thumb_store.save_data_urls(batch)
+    for pack, name in saved:
         try:
             raw = thumb_store.read_png(pack, name)
             if raw:
                 image_search.add_or_update(pack, name, raw)
         except Exception:
             pass
-    return jsonify({"ok": True, "saved": saved, "errors": errors, **thumb_store.stats()})
+    return jsonify({"ok": True, "saved": len(saved), "errors": len(items[:80]) - len(saved), **thumb_store.stats()})
 
 
 @app.route("/api/thumbs/reindex", methods=["POST"])

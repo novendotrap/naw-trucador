@@ -132,7 +132,7 @@ def key_for(pack: str, name: str) -> str:
     return f"{pack}.{name}"
 
 
-def save_png_bytes(pack: str, name: str, png: bytes, source: str = "flash") -> Dict[str, Any]:
+def save_png_bytes(pack: str, name: str, png: bytes, source: str = "flash", *, persist: bool = True) -> Dict[str, Any]:
     """Guarda PNG y actualiza índice liviano (sin features)."""
     if not pack or not name or not png:
         return {"ok": False, "error": "datos incompletos"}
@@ -153,11 +153,12 @@ def save_png_bytes(pack: str, name: str, png: bytes, source: str = "flash") -> D
             "max_edge": max_edge,
             "capture_max": CAPTURE_MAX,
         }
-        _save_meta()
+        if persist:
+            _save_meta()
     return {"ok": True, "pack": pack, "name": name, "path": str(path)}
 
 
-def save_data_url(pack: str, name: str, data_url: str, source: str = "flash") -> Dict[str, Any]:
+def save_data_url(pack: str, name: str, data_url: str, source: str = "flash", *, persist: bool = True) -> Dict[str, Any]:
     raw = (data_url or "").strip()
     if not raw:
         return {"ok": False, "error": "sin imagen"}
@@ -169,7 +170,19 @@ def save_data_url(pack: str, name: str, data_url: str, source: str = "flash") ->
         return {"ok": False, "error": f"base64 inválido: {e}"}
     if len(png) < 32:
         return {"ok": False, "error": "imagen demasiado chica"}
-    return save_png_bytes(pack, name, png, source=source)
+    return save_png_bytes(pack, name, png, source=source, persist=persist)
+
+
+def save_data_urls(items: List[Tuple[str, str, str]]) -> List[Tuple[str, str]]:
+    """Persist the shared metadata once for the entire batch."""
+    saved = []
+    with _lock:
+        for pack, name, png in items:
+            if save_data_url(pack, name, png, persist=False).get("ok"):
+                saved.append((pack, name))
+        if saved:
+            _save_meta()
+    return saved
 
 
 def get_png_path(pack: str, name: str) -> Optional[Path]:
@@ -507,6 +520,8 @@ def import_index_zip(zip_path: Path) -> Dict[str, Any]:
     ensure_root()
 
     written = 0
+    written_pngs = 0
+    kept_pngs = 0
     skipped = 0
     t0 = time.time()
     try:
@@ -522,12 +537,11 @@ def import_index_zip(zip_path: Path) -> Dict[str, Any]:
                 low = rel.lower()
                 ok_name = (
                     low.endswith(".png")
-                    or low.endswith("_index.json")
                     or low.endswith(".npz")
                     or low.endswith(".pkl")
                     or low.endswith(".json")
                 )
-                if not ok_name:
+                if not ok_name or low.endswith("_index.json"):
                     skipped += 1
                     continue
                 dest = THUMB_ROOT / rel
@@ -537,19 +551,34 @@ def import_index_zip(zip_path: Path) -> Dict[str, Any]:
                 except ValueError:
                     skipped += 1
                     continue
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                with zf.open(info, "r") as src, open(dest, "wb") as dst:
-                    shutil.copyfileobj(src, dst)
+                if low.endswith(".png"):
+                    incoming = zf.read(info)
+                    edge = _png_max_edge(incoming)
+                    if not edge:
+                        skipped += 1
+                        continue
+                    if dest.is_file() and _png_max_edge(dest.read_bytes()) >= edge:
+                        skipped += 1
+                        kept_pngs += 1
+                        continue
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    dest.write_bytes(incoming)
+                    written_pngs += 1
+                else:
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    with zf.open(info, "r") as src, open(dest, "wb") as dst:
+                        shutil.copyfileobj(src, dst)
                 written += 1
     except zipfile.BadZipFile:
         return {"ok": False, "error": "El archivo no es un zip válido"}
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
-    if written <= 0:
+    if written <= 0 and kept_pngs <= 0:
         return {"ok": False, "error": "El zip no traía thumbs reconocibles"}
 
-    reload_meta()
+    if written_pngs:
+        rebuild_meta_from_disk()
     st = stats()
     return {
         "ok": True,

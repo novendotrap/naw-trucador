@@ -15,9 +15,8 @@ import {
   releaseViewerHold,
 } from "../thumbs/bridge";
 import {
-  getIndexerState,
+  prioritizePackThumbs,
   resumeAutoIndexer,
-  startAutoIndexer,
   stopAutoIndexer,
   subscribeIndexer,
 } from "../thumbs/autoIndexer";
@@ -266,15 +265,8 @@ export default function ObjetosPage({
   );
   useEffect(() => {
     if (!needsPackThumbs) return undefined;
-    let cancelled = false;
-    const timer = setTimeout(async () => {
-      if (getIndexerState().running) await startAutoIndexer();
-      if (!cancelled) await startAutoIndexer({ hd: true, pack });
-    }, 350);
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-    };
+    const timer = setTimeout(() => prioritizePackThumbs(pack), 200);
+    return () => clearTimeout(timer);
   }, [pack, needsPackThumbs]);
 
   const filteredSwfs = useMemo(() => {
@@ -791,7 +783,7 @@ export default function ObjetosPage({
                 className="btn btn-ghost btn-sm"
                 onClick={() => stopAutoIndexer()}
               >
-                Pausar índice
+                Detener índice
               </button>
             )
           ) : isIndex100Percent ? (
@@ -834,9 +826,9 @@ export default function ObjetosPage({
                 releaseViewerHold();
                 resumeAutoIndexer({ hd: true }).then(refreshThumbStats);
               }}
-              title={`Recaptura miniaturas de ${coverageData.stale_packs} packs en segundo plano`}
+              title={`Recaptura hasta 120 px en ${coverageData.stale_packs} packs. El pack abierto tiene prioridad.`}
             >
-              Mejorar miniaturas
+              Mejorar todas las miniaturas
             </button>
           )}
           <button
@@ -844,7 +836,7 @@ export default function ObjetosPage({
             className="btn btn-ghost btn-sm"
             disabled={ioBusy || indexer.running}
             onClick={exportThumbsIndex}
-            title="Genera thumbs_index.zip para pasárselo a otra PC"
+            title="Exporta el índice y las miniaturas guardadas, incluidas las mejoradas"
           >
             Exportar
           </button>

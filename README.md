@@ -36,6 +36,7 @@ La instalación usa un entorno Python privado y guarda Electron en `.runtime/`. 
 
 - En **Archivos**, revisá la biblioteca y descargá los recursos que falten. El catálogo inicial está incluido; los cientos de SWF del juego se descargan a demanda y no vienen duplicados en este repositorio.
 - Las miniaturas se generan en segundo plano. En una instalación nueva, la búsqueda por imagen necesita que haya miniaturas disponibles y que termine de preparar su índice.
+- En **Objetos**, abrir un SWF prioriza sus miniaturas pendientes. **Mejorar todas las miniaturas** recaptura las antiguas de todo el catálogo a hasta 120 píxeles. **Exportar** incluye las miniaturas ya guardadas y **Importar** conserva las que tengan mayor resolución.
 - Los modelos de búsqueda visual y de eliminación de fondo se descargan al usar esas funciones. Si el modelo no está disponible, hay búsqueda clásica y eliminación de fondo de sprites como alternativas.
 - Seleccioná objetos en **Objetos**. **Dar con Lola** pide cantidad y deja los objetos preparados. Las variantes con sufijo `_so` están excluidas de la selección y el envío normales.
 - En **Lola** podés ver los preparados agrupados por SWF, desplegar su detalle, quitar un objeto, quitar un SWF o vaciar los preparados.

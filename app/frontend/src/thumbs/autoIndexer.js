@@ -32,6 +32,7 @@ let player = null;
 let hostEl = null;
 let loopPromise = null;
 let stopFlag = false;
+let priorityPack = '';
 let ruffleScriptPromise = null;
 
 function emit() {
@@ -155,7 +156,6 @@ async function waitForPackThumbs(pack, expected) {
   const start = Date.now();
 
   while (!stopFlag && Date.now() - start < maxMs) {
-    if (viewerIsHolding()) return;
     const st = getIndexerThumbStats();
     if (st.pack !== pack) return;
 
@@ -174,6 +174,8 @@ async function indexLoop({ hd, pack: targetPack }) {
   try {
     const cov = await api.thumbsCoverage(hd);
     const missing = (cov.missing || []).filter((pack) => !targetPack || pack === targetPack);
+    const eligible = new Set([...(cov.missing || []), ...(cov.stale || [])]);
+    const attempted = new Set();
     const expectedMap = cov.expected || {};
     state.total = cov.total_packs || 0;
     state.packsDone = cov.done_packs || 0;
@@ -209,12 +211,20 @@ async function indexLoop({ hd, pack: targetPack }) {
     }
     emit();
 
-    for (let i = 0; i < missing.length; i++) {
+    for (let i = 0; i < missing.length || priorityPack; i++) {
       if (stopFlag) break;
       await waitWhileViewerBusy();
       if (stopFlag) break;
 
+      if (priorityPack && eligible.has(priorityPack) && !attempted.has(priorityPack)) {
+        const position = missing.indexOf(priorityPack, i);
+        if (position !== -1) missing.splice(position, 1);
+        missing.splice(i, 0, priorityPack);
+      }
+      priorityPack = "";
       const pack = missing[i];
+      if (!pack) break;
+      attempted.add(pack);
       const expected = Number(expectedMap[pack] || 0);
       state.current = pack;
       state.index = i + 1;
@@ -231,10 +241,6 @@ async function indexLoop({ hd, pack: targetPack }) {
       }
 
       await waitForPackThumbs(pack, expected);
-      if (viewerIsHolding() && !stopFlag) {
-        i -= 1;
-        continue;
-      }
 
       if (i % 12 === 11) {
         try {
@@ -274,7 +280,11 @@ async function indexLoop({ hd, pack: targetPack }) {
     state.paused = false;
     emit();
     loopPromise = null;
-  }
+    if (priorityPack && !stopFlag) {
+      const pack = priorityPack;
+      priorityPack = "";
+      prioritizePackThumbs(pack);
+    }  }
 }
 
 /** Arranca indexado de packs faltantes (vacíos/incompletos). No resetea lo ya capturado. */
@@ -285,7 +295,14 @@ export function startAutoIndexer({ hd = false, pack = "" } = {}) {
   return loopPromise;
 }
 
+export function prioritizePackThumbs(pack) {
+  if (!loopPromise) return startAutoIndexer({ hd: true, pack });
+  priorityPack = pack;
+  return loopPromise;
+}
+
 export function stopAutoIndexer() {
+  priorityPack = "";
   stopFlag = true;
 }
 

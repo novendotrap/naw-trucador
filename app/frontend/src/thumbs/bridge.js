@@ -99,7 +99,7 @@ export function subscribeThumbs(fn, key) {
   return () => wildcardListeners.delete(fn);
 }
 
-const VIEWER_HOLD_MS = 10000;
+const VIEWER_HOLD_MS = 1000;
 
 /** Pack del visor / exploración manual. Pausa el indexador unos segundos. */
 export function setThumbSearchPack(pack) {
@@ -131,7 +131,6 @@ export function getIndexerThumbStats() {
 }
 
 export function noteViewerActivity(ms = VIEWER_HOLD_MS) {
-  bridgeMode = "viewer";
   viewerHoldUntil = Date.now() + ms;
 }
 
