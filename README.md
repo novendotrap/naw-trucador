@@ -8,7 +8,7 @@ Requisitos para usar el programa
 
 - **Windows 10 u 11 de 64 bits.** Esta distribución no está preparada para macOS, Linux ni Windows de 32 bits.
 - **Python se prepara automáticamente.** Si ya tenés Python 3.12, 3.13 o 3.14 x64 estándar, se reutiliza. Si el BAT solo encuentra una versión incompatible o no encuentra Python, descarga una copia privada en `.runtime/` y conserva tu instalación global.
-- **Java 17 o superior**, disponible en PATH. Alcanza un runtime de Java; el helper del trucador ya está compilado. [Descargar Temurin 17](https://adoptium.net/temurin/releases/?version=17).
+- **Java 8 o superior** es obligatorio para instalar y abrir el programa. FFDec lo usa para modificar SWF. Se detecta desde `JAVA_HOME`, `PATH` o las carpetas de instalación habituales.
 - **El cliente de escritorio de Mundo Gaturro**, instalado en esa PC, para aplicar las modificaciones dentro del juego.
 - **Conexión a Internet** durante la instalación, para descargar recursos que falten y para jugar.
 
@@ -62,7 +62,7 @@ Se excluyen sesiones, rutas personales del juego, certificados, logs, trucos gua
 ## Solución de problemas
 
 - **Falló la descarga de Python local:** revisá la conexión o instalá manualmente [Python 3.12, 3.13 o 3.14 para Windows x64](https://www.python.org/downloads/windows/).
-- **Java no encontrado:** instalá Java 17 y verificá `java -version`.
+- **Java no encontrado:** configurá `JAVA_HOME` con tu instalación de Java 8 o superior, o agregá Java a `PATH`.
 - **Falló la instalación:** revisá la conexión y volvé a ejecutar `Instalar.bat`. No hace falta borrar tus datos.
 - **No encuentra Mundo Gaturro:** abrí el cliente del juego una vez y volvé a usar la herramienta. La ruta se detecta en esa PC; no se distribuye una ruta personal.
 - **No aparecen objetos o miniaturas:** descargá los packs faltantes en Archivos y dejá completar el índice.

@@ -48,6 +48,8 @@ from pathlib import Path
 
 from typing import Any, Dict, List, Optional, Set, Tuple
 
+from .java_runtime import java_executable
+
 
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -1716,7 +1718,7 @@ def _ensure_add_as3_compiled() -> bool:
 
     res = subprocess.run(
 
-        ["javac", "-cp", cp, "-d", str(ADD_AS3_DIR), str(java_file)],
+        ["javac", "-source", "8", "-target", "8", "-cp", cp, "-d", str(ADD_AS3_DIR), str(java_file)],
 
         capture_output=True,
 
@@ -1736,7 +1738,7 @@ def _export_scripts_to(temp_dir: Path, src_swf: Path) -> Optional[Path]:
 
     cmd_export = [
 
-        "java", "-jar", str(FFDEC_JAR),
+        java_executable(), "-jar", str(FFDEC_JAR),
 
         "-export", "script", str(temp_dir), str(src_swf),
 
@@ -1760,7 +1762,7 @@ def _run_ffdec_import(src_swf: Path, out_swf: Path, scripts_dir: Path) -> subpro
 
     """importScript with playerglobal so uint/String/MovieClip resolve."""
 
-    cmd = ["java", "-jar", str(FFDEC_JAR)]
+    cmd = [java_executable(), "-jar", str(FFDEC_JAR)]
 
     pg = _playerglobal_swc()
 
@@ -2094,7 +2096,7 @@ def _inject_mambo_bases(working_swf: Path, needed: Set[str]) -> Dict[str, Any]:
 
         cmd_add = [
 
-            "java", "-cp", _ffdec_classpath_add_as3(), ADD_AS3_CLASS,
+            java_executable(), "-cp", _ffdec_classpath_add_as3(), ADD_AS3_CLASS,
 
             str(working_swf), str(empty_swf), *ordered,
 

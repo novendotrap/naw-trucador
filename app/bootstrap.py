@@ -4,7 +4,6 @@ import argparse
 import hashlib
 import json
 import os
-import shutil
 import socket
 import sysconfig
 import subprocess
@@ -15,6 +14,10 @@ import zipfile
 from pathlib import Path
 
 APP = Path(__file__).resolve().parent
+# The BAT starts Python in isolated mode, which omits the script directory.
+sys.path.insert(0, str(APP))
+from core.java_runtime import java_executable
+
 ROOT = APP.parent
 RUNTIME = ROOT / ".runtime"
 PYTHON = RUNTIME / "python" / "Scripts" / "python.exe"
@@ -34,14 +37,6 @@ def check_system():
             or not (3, 12) <= sys.version_info[:2] <= (3, 14)
             or sysconfig.get_config_var("Py_GIL_DISABLED")):
         raise RuntimeError("Necesitas Python 3.12, 3.13 o 3.14 para Windows x64.")
-    java = shutil.which("java")
-    if not java:
-        raise RuntimeError("Falta Java 17 o superior en PATH. Descarga: https://adoptium.net/temurin/releases/?version=17")
-    result = subprocess.run([java, "-version"], capture_output=True, text=True, errors="replace")
-    import re
-    match = re.search(r'version "([0-9]+)', result.stderr + result.stdout)
-    if result.returncode or not match or int(match[1]) < 17:
-        raise RuntimeError("Necesitas Java 17 o superior. Verifica con: java -version")
     for name in ["frontend/dist/index.html", "ffdec/ffdec.jar", "ffdec/flashlib/playerglobal32_0.swc", "tools/ffdec_add_class/com/naw/ffdec/AddAs3Classes.class", "static/ruffle/ruffle.js"]:
         if not (APP / name).is_file():
             raise RuntimeError(f"La descarga del proyecto esta incompleta: falta app/{name}")
@@ -130,6 +125,7 @@ def install_electron():
 
 def prepare():
     check_system()
+    verify_java()
     RUNTIME.mkdir(exist_ok=True)
     if not local_python_works():
         print("Preparando el entorno local de Python...", flush=True)
@@ -158,15 +154,14 @@ def prepare():
 
 def install():
     prepare()
-    verify_java()
+    print("Motor Java OK", flush=True)
     print("Instalacion lista. Ya podes usar Abrir naw.bat.", flush=True)
 
 
 def verify_java():
-    helper = subprocess.run(["java", "-cp", str(APP / "tools/ffdec_add_class") + os.pathsep + str(APP / "ffdec/lib/*"), "com.naw.ffdec.AddAs3Classes"], capture_output=True, text=True, errors="replace")
+    helper = subprocess.run([java_executable(), "-cp", str(APP / "tools/ffdec_add_class") + os.pathsep + str(APP / "ffdec/lib/*"), "com.naw.ffdec.AddAs3Classes"], capture_output=True, text=True, errors="replace", timeout=15)
     if helper.returncode != 2 or "Usage: AddAs3Classes" not in helper.stderr:
         raise RuntimeError(f"El motor Java no se puede iniciar: {helper.stderr}")
-    print("Motor Java OK", flush=True)
 
 
 def choose_port():
@@ -215,8 +210,9 @@ if __name__ == "__main__":
             if not local_python_works() or not dependencies_ready() or not libraries_work() or not electron_ready():
                 raise RuntimeError("La instalacion local necesita reparacion.")
             verify_java()
+            print("Motor Java OK", flush=True)
         else:
             launch(smoke=args.action == "smoke")
-    except (OSError, RuntimeError, subprocess.CalledProcessError, zipfile.BadZipFile) as error:
+    except (OSError, RuntimeError, subprocess.SubprocessError, zipfile.BadZipFile) as error:
         print(f"\n[ERROR] {error}\nLa operacion no se completo. Corregi el problema y volve a ejecutar Instalar.bat.", file=sys.stderr, flush=True)
         sys.exit(1)

@@ -13,6 +13,6 @@ Después de compilar, incluí los cambios de `app/frontend/dist` en el commit. N
 
 `app/bootstrap.py` administra el entorno privado de Python y descarga la distribución oficial de Electron, fijada a una versión y un SHA-256. `desktop/main.cjs` inicia Flask con ese Python y verifica que el backend corresponda a esta copia del proyecto.
 
-El helper Java incluye el `.class` y el `.java`. No se necesita `javac` para el uso normal; solamente para modificar/recompilar ese helper.
+El helper Java incluye el `.class` y el `.java`. No se necesita `javac` para el uso normal; solamente para modificar/recompilar ese helper. Compilalo con `javac --release 8` para que el binario siga funcionando con Java 8.
 
 Los datos persistentes están en `app/data/`; los runtimes instalados y el perfil de Electron, en `.runtime/`. No publiques esos datos de usuario.
