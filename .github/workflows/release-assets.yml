@@ -1,0 +1,58 @@
+name: Adjuntar archivos a la release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-assets-${{ github.event.release.id }}
+  cancel-in-progress: false
+
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ github.event.release.tag_name }}
+      THUMBS_TAG: ${{ vars.THUMBS_SOURCE_TAG || 'v1.0.4' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Armar y verificar el ZIP de Windows
+        shell: bash
+        run: |
+          mkdir -p release-assets
+          git archive --format=zip --prefix=naw-trucador/ \
+            --output=release-assets/naw-trucador-windows.zip HEAD
+          unzip -tq release-assets/naw-trucador-windows.zip
+          for file in 'Instalar.bat' 'Abrir naw.bat' 'app/launch.ps1' 'app/frontend/dist/index.html'; do
+            unzip -p release-assets/naw-trucador-windows.zip "naw-trucador/$file" > /dev/null
+          done
+
+      - name: Preparar y adjuntar los archivos
+        shell: bash
+        run: |
+          existing=$(gh release view --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' -- "$RELEASE_TAG")
+          files=()
+          if ! grep -Fxq naw-trucador-windows.zip <<< "$existing"; then
+            files+=(release-assets/naw-trucador-windows.zip)
+          fi
+          if ! grep -Fxq thumbs_index.zip <<< "$existing"; then
+            gh release download --repo "$GITHUB_REPOSITORY" --pattern thumbs_index.zip \
+              --dir release-assets -- "$THUMBS_TAG"
+            if [[ "$THUMBS_TAG" == v1.0.4 ]]; then
+              echo '88dc0c3154e3a0d4e2fc1bda1897f0e36cf3cd73f83edbaac56ec672276ba861  release-assets/thumbs_index.zip' | sha256sum --check
+            fi
+            unzip -tq release-assets/thumbs_index.zip
+            files+=(release-assets/thumbs_index.zip)
+          fi
+          if (( ${#files[@]} )); then
+            gh release upload --repo "$GITHUB_REPOSITORY" -- "$RELEASE_TAG" "${files[@]}"
+          fi
+

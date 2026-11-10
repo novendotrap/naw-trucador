@@ -478,7 +478,6 @@ def api_remove_background():
     Acepta JSON { "data_url": "...", "mode": "smart" | "ai" } o multipart file.
     Devuelve { "ok": True, "data_url": "data:image/png;base64,..." }.
     """
-    from core import bg_remove
     from PIL import Image
     import base64
     import io
@@ -506,6 +505,8 @@ def api_remove_background():
         return jsonify({"ok": False, "error": "Falta la imagen"}), 400
 
     try:
+        from core import bg_remove
+
         pil_img = Image.open(io.BytesIO(png_bytes))
         result = bg_remove.remove_background(pil_img, mode=mode)
         buf = io.BytesIO()

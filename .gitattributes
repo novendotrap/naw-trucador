@@ -6,3 +6,4 @@
 *.swf binary
 *.wasm binary
 *.class binary
+/.github export-ignore

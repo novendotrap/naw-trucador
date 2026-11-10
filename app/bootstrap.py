@@ -73,11 +73,43 @@ with open(sys.argv[1], encoding="utf-8") as lock:
     return subprocess.run([str(PYTHON), "-I", "-c", check, str(REQ)], capture_output=True).returncode == 0
 
 
-def libraries_work():
-    return subprocess.run(
-        [str(PYTHON), "-I", "-c", "import flask, mitmproxy, requests, urllib3, PIL, imagehash, numpy, onnxruntime, huggingface_hub, cv2"],
-        capture_output=True,
-    ).returncode == 0
+def verify_libraries():
+    check = """
+import importlib
+import sys
+for name in sys.argv[1:]:
+    print(name, flush=True)
+    importlib.import_module(name)
+"""
+    core = ("flask", "mitmproxy.tools.main", "requests", "urllib3", "PIL.Image", "imagehash", "numpy")
+    optional = {
+        "onnxruntime": "busqueda visual por IA",
+        "huggingface_hub": "descarga de modelos",
+        "cv2": "recorte automatico de fondo",
+    }
+
+    def probe(*modules):
+        return subprocess.run(
+            [str(PYTHON), "-I", "-c", check, *modules],
+            capture_output=True, text=True, errors="replace",
+        )
+
+    def explain(result):
+        module = (result.stdout.splitlines() or ["Python"])[-1]
+        detail = result.stderr.strip() or f"codigo de salida {result.returncode}"
+        hint = ""
+        if "dll" in detail.lower() or result.returncode in (3221225781, -1073741515):
+            hint = ("\nSi falta una DLL de Visual C++, instala el redistribuible x64 oficial: "
+                    "https://aka.ms/vc14/vc_redist.x64.exe")
+        return f"{module}: {detail}{hint}"
+
+    result = probe(*core)
+    if result.returncode:
+        raise RuntimeError(f"No se pudo cargar una libreria necesaria. {explain(result)}")
+    for name, feature in optional.items():
+        result = probe(name)
+        if result.returncode:
+            print(f"[AVISO] {feature}: {explain(result)}", flush=True)
 
 
 def electron_ready():
@@ -135,16 +167,15 @@ def prepare():
             PYTHON.parent.parent.rename(RUNTIME / f"python-anterior-{uuid.uuid4().hex[:8]}")
         venv.EnvBuilder(with_pip=True).create(RUNTIME / "python")
 
-    pins_match = dependencies_ready()
-    if not pins_match or not libraries_work():
+    if not dependencies_ready():
         print("Reparando o instalando las librerias necesarias...", flush=True)
         if subprocess.run([str(PYTHON), "-m", "pip", "--version"], capture_output=True).returncode:
             run([PYTHON, "-m", "ensurepip"])
-        options = ["--force-reinstall"] if pins_match else []
-        run([PYTHON, "-m", "pip", "install", "--disable-pip-version-check", *options, "-r", REQ])
+        run([PYTHON, "-m", "pip", "install", "--disable-pip-version-check", "-r", REQ])
         run([PYTHON, "-m", "pip", "check"])
-        if not dependencies_ready() or not libraries_work():
-            raise RuntimeError("No se pudieron verificar las librerias de Python.")
+        if not dependencies_ready():
+            raise RuntimeError("Las versiones instaladas no coinciden con requirements.txt.")
+    verify_libraries()
 
     if not electron_ready():
         install_electron()
@@ -207,8 +238,9 @@ if __name__ == "__main__":
             install()
         elif args.action == "verify":
             check_system()
-            if not local_python_works() or not dependencies_ready() or not libraries_work() or not electron_ready():
+            if not local_python_works() or not dependencies_ready() or not electron_ready():
                 raise RuntimeError("La instalacion local necesita reparacion.")
+            verify_libraries()
             verify_java()
             print("Motor Java OK", flush=True)
         else:
