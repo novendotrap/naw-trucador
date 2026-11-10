@@ -7,7 +7,7 @@ Herramienta de escritorio para Windows que permite explorar objetos de Mundo Gat
 Instalá estas aplicaciones:
 
 - **Windows 10 u 11 de 64 bits.** Esta distribución no está preparada para macOS, Linux ni Windows de 32 bits.
-- **Python 3.12 de 64 bits**, con **Add Python to PATH** o el lanzador `py`. [Descargar Python](https://www.python.org/downloads/windows/).
+- **Python 3.12, 3.13 o 3.14 para Windows x64.** Si ya tenés alguna de esas versiones, usá la que tenés. Los BAT buscan primero el Python local y también detectan instalaciones registradas aunque no estén en PATH. [Descargar Python](https://www.python.org/downloads/windows/).
 - **Java 17 o superior**, disponible en PATH. Alcanza un runtime de Java; el helper del trucador ya está compilado. [Descargar Temurin 17](https://adoptium.net/temurin/releases/?version=17).
 - **El cliente de escritorio de Mundo Gaturro**, instalado en esa PC, para aplicar las modificaciones dentro del juego.
 - **Conexión a Internet** durante la instalación, para descargar recursos que falten y para jugar.
@@ -15,7 +15,7 @@ Instalá estas aplicaciones:
 Para comprobar Python y Java, abrí una terminal y ejecutá:
 
 ```bat
-py -3.12 --version
+py -0p
 java -version
 ```
 
@@ -30,7 +30,7 @@ Las librerías de Python y el motor de la ventana se instalan automáticamente. 
 
 Si abrís la aplicación antes de instalar, el iniciador hace la instalación primero. Si hay un error, el BAT muestra el motivo y termina con error; no informa éxito cuando falla una descarga o dependencia.
 
-La instalación usa un entorno Python privado y guarda Electron en `.runtime/`. No instala los paquetes del proyecto en el Python global. La interfaz ya viene compilada.
+La instalación reutiliza el entorno Python y Electron en `.runtime/` si pasan las comprobaciones. Instala o repara cada componente por separado cuando hace falta. No instala los paquetes del proyecto en el Python global. La interfaz ya viene compilada.
 
 ## Primer uso
 
@@ -61,12 +61,12 @@ Se excluyen sesiones, rutas personales del juego, certificados, logs, trucos gua
 
 ## Solución de problemas
 
-- **Python no encontrado:** instalá Python 3.12 x64 con PATH o con el lanzador `py`; cerrá y reabrí la terminal.
+- **Python no encontrado:** si solo tenés Python 3.11 o anterior, instalá Python 3.12 x64 al lado del que ya usás. Las dependencias fijadas requieren Python 3.12 como mínimo.
 - **Java no encontrado:** instalá Java 17 y verificá `java -version`.
 - **Falló la instalación:** revisá la conexión y volvé a ejecutar `Instalar.bat`. No hace falta borrar tus datos.
 - **No encuentra Mundo Gaturro:** abrí el cliente del juego una vez y volvé a usar la herramienta. La ruta se detecta en esa PC; no se distribuye una ruta personal.
 - **No aparecen objetos o miniaturas:** descargá los packs faltantes en Archivos y dejá completar el índice.
-- **Cambiaste la carpeta de lugar:** ejecutá otra vez `Instalar.bat`.
+- **Actualizaste desde un ZIP:** extraé los archivos nuevos sobre tu carpeta existente si querés conservar el entorno y los datos locales. Una carpeta nueva prepara su propio entorno.
 - **Puerto web ocupado:** el iniciador busca un puerto local libre entre 5500 y 5519. El proxy del juego usa 8080.
 
 Para modificar y recompilar la interfaz, consultá [la guía de desarrollo](app/DEVELOPMENT.md). Los componentes incluidos y sus avisos están en [THIRD_PARTY.md](app/THIRD_PARTY.md).

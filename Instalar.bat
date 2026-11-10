@@ -3,26 +3,14 @@ setlocal
 title naw-trucador
 set "naw_root=%~dp0"
 cd /d "%naw_root%"
-where py >nul 2>nul
-if not errorlevel 1 (
-  py -3.12 -c "import sys; assert sys.version_info[:2] == (3,12)" >nul 2>nul
-  if not errorlevel 1 goto use_py
+set "naw_action=install"
+if not exist "%naw_root%app\launch.ps1" (
+  echo [ERROR] Falta app\launch.ps1. Extrae el ZIP completo.
+  set "naw_result=1"
+  goto finish
 )
-where python >nul 2>nul
-if errorlevel 1 goto missing
-python -c "import sys; assert sys.version_info[:2] == (3,12)" >nul 2>nul
-if errorlevel 1 goto missing
-python "%naw_root%app\bootstrap.py" install
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -File "%naw_root%app\launch.ps1" %naw_action%
 set "naw_result=%ERRORLEVEL%"
-goto finish
-:use_py
-py -3.12 "%naw_root%app\bootstrap.py" install
-set "naw_result=%ERRORLEVEL%"
-goto finish
-:missing
-echo [ERROR] Instala Python 3.12 de 64 bits y habilita Add Python to PATH.
-echo https://www.python.org/downloads/windows/
-set "naw_result=1"
 :finish
 if "%naw_result%"=="0" goto success
 echo.

@@ -4,10 +4,9 @@ import argparse
 import hashlib
 import json
 import os
-import platform
 import shutil
 import socket
-import struct
+import sysconfig
 import subprocess
 import sys
 import urllib.request
@@ -23,7 +22,6 @@ ELECTRON_VERSION = "34.5.8"
 ELECTRON_FILE = f"electron-v{ELECTRON_VERSION}-win32-x64.zip"
 ELECTRON_SHA256 = "ac880c62339b91c6833b3edaabbb62d9148b27f01b410a3b2100cb4ce92b7b11"
 ELECTRON = RUNTIME / "electron" / "electron.exe"
-MARKER = RUNTIME / "installed.json"
 REQ = APP / "requirements.txt"
 
 
@@ -32,10 +30,8 @@ def run(args, **kwargs):
 
 
 def check_system():
-    if sys.platform != "win32" or struct.calcsize("P") != 8:
-        raise RuntimeError("Necesitas Windows y Python de 64 bits.")
-    if sys.version_info[:2] != (3, 12):
-        raise RuntimeError("Instala Python 3.12 de 64 bits: https://www.python.org/downloads/windows/")
+    if sysconfig.get_platform() != "win-amd64" or not (3, 12) <= sys.version_info[:2] <= (3, 14):
+        raise RuntimeError("Necesitas Python 3.12, 3.13 o 3.14 para Windows x64.")
     java = shutil.which("java")
     if not java:
         raise RuntimeError("Falta Java 17 o superior en PATH. Descarga: https://adoptium.net/temurin/releases/?version=17")
@@ -49,23 +45,60 @@ def check_system():
             raise RuntimeError(f"La descarga del proyecto esta incompleta: falta app/{name}")
 
 
-def expected():
-    return {"requirements": hashlib.sha256(REQ.read_bytes()).hexdigest(), "electron": ELECTRON_VERSION, "python": "3.12", "root": str(ROOT)}
-
-
-def installed():
+def local_python_works():
+    if not PYTHON.is_file():
+        return False
     try:
-        return MARKER.is_file() and json.loads(MARKER.read_text()) == expected() and PYTHON.is_file() and ELECTRON.is_file()
-    except (OSError, ValueError):
+        return subprocess.run(
+            [str(PYTHON), "-I", "-c", "import sys, sysconfig; assert (3,12) <= sys.version_info[:2] <= (3,14) and sysconfig.get_platform() == 'win-amd64'"],
+            capture_output=True,
+        ).returncode == 0
+    except OSError:
+        return False
+
+
+def dependencies_ready():
+    check = """
+import importlib.metadata
+import sys
+from packaging.requirements import Requirement
+from packaging.version import Version
+
+with open(sys.argv[1], encoding="utf-8") as lock:
+    for line in lock:
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        requirement = Requirement(line)
+        if requirement.marker is None or requirement.marker.evaluate():
+            assert Version(importlib.metadata.version(requirement.name)) in requirement.specifier
+"""
+    return subprocess.run([str(PYTHON), "-I", "-c", check, str(REQ)], capture_output=True).returncode == 0
+
+
+def libraries_work():
+    return subprocess.run(
+        [str(PYTHON), "-I", "-c", "import flask, mitmproxy, requests, urllib3, PIL, imagehash, numpy, onnxruntime, huggingface_hub, cv2"],
+        capture_output=True,
+    ).returncode == 0
+
+
+def electron_ready():
+    folder = ELECTRON.parent
+    try:
+        return (
+            (folder / "version").read_text().strip().lstrip("v") == ELECTRON_VERSION
+            and all((folder / name).stat().st_size > 0 for name in (
+                "electron.exe", "icudtl.dat", "resources.pak", "chrome_100_percent.pak",
+                "chrome_200_percent.pak", "ffmpeg.dll", "v8_context_snapshot.bin",
+                "locales/en-US.pak",
+            ))
+        )
+    except (OSError, UnicodeError):
         return False
 
 
 def install_electron():
-    if ELECTRON.is_file():
-        version = subprocess.run([str(ELECTRON), "--version"], capture_output=True, text=True, env={key: value for key, value in os.environ.items() if key != "ELECTRON_RUN_AS_NODE"})
-        # Presence alone is not the installation marker. The download is verified below on a clean install.
-        if version.returncode == 0 and version.stdout.strip() == f"v{ELECTRON_VERSION}":
-            return
     url = f"https://github.com/electron/electron/releases/download/v{ELECTRON_VERSION}/{ELECTRON_FILE}"
     archive = RUNTIME / ELECTRON_FILE
     partial = archive.with_suffix(".part")
@@ -93,24 +126,41 @@ def install_electron():
         archive.unlink(missing_ok=True)
 
 
-def install():
+def prepare():
     check_system()
     RUNTIME.mkdir(exist_ok=True)
-    print("[1/3] Preparando Python local...", flush=True)
-    if not PYTHON.exists():
+    if not local_python_works():
+        print("Preparando el entorno local de Python...", flush=True)
+        # Keep a broken environment recoverable while building a replacement.
+        if PYTHON.parent.parent.exists():
+            import uuid
+            PYTHON.parent.parent.rename(RUNTIME / f"python-anterior-{uuid.uuid4().hex[:8]}")
         venv.EnvBuilder(with_pip=True).create(RUNTIME / "python")
-    print("[2/3] Instalando librerias... La primera vez puede tardar varios minutos.", flush=True)
-    run([PYTHON, "-m", "pip", "install", "--disable-pip-version-check", "-r", REQ])
-    run([PYTHON, "-m", "pip", "check"])
-    print("[3/3] Preparando la ventana de escritorio...", flush=True)
-    install_electron()
-    verify()
-    MARKER.write_text(json.dumps(expected(), indent=2), encoding="utf-8")
-    print("Instalacion completada. Ya podes usar Abrir naw.bat.", flush=True)
+
+    pins_match = dependencies_ready()
+    if not pins_match or not libraries_work():
+        print("Reparando o instalando las librerias necesarias...", flush=True)
+        if subprocess.run([str(PYTHON), "-m", "pip", "--version"], capture_output=True).returncode:
+            run([PYTHON, "-m", "ensurepip"])
+        options = ["--force-reinstall"] if pins_match else []
+        run([PYTHON, "-m", "pip", "install", "--disable-pip-version-check", *options, "-r", REQ])
+        run([PYTHON, "-m", "pip", "check"])
+        if not dependencies_ready() or not libraries_work():
+            raise RuntimeError("No se pudieron verificar las librerias de Python.")
+
+    if not electron_ready():
+        install_electron()
+        if not electron_ready():
+            raise RuntimeError("La instalacion de Electron quedo incompleta.")
 
 
-def verify():
-    run([PYTHON, "-c", "import flask, mitmproxy, requests, urllib3, PIL, imagehash, numpy, onnxruntime, huggingface_hub, cv2; print('Librerias OK')"])
+def install():
+    prepare()
+    verify_java()
+    print("Instalacion lista. Ya podes usar Abrir naw.bat.", flush=True)
+
+
+def verify_java():
     helper = subprocess.run(["java", "-cp", str(APP / "tools/ffdec_add_class") + os.pathsep + str(APP / "ffdec/lib/*"), "com.naw.ffdec.AddAs3Classes"], capture_output=True, text=True, errors="replace")
     if helper.returncode != 2 or "Usage: AddAs3Classes" not in helper.stderr:
         raise RuntimeError(f"El motor Java no se puede iniciar: {helper.stderr}")
@@ -135,9 +185,7 @@ def choose_port():
 
 
 def launch(smoke=False):
-    check_system()
-    if not installed():
-        install()
+    prepare()
     env = {**os.environ, "PYTHON": str(PYTHON), "PYTHONUNBUFFERED": "1", "PORT": str(choose_port())}
     env.pop("ELECTRON_RUN_AS_NODE", None)
     command = [ELECTRON, APP / "desktop/main.cjs"]
@@ -158,9 +206,15 @@ if __name__ == "__main__":
     parser.add_argument("action", choices=["install", "open", "verify", "smoke"])
     args = parser.parse_args()
     try:
-        if args.action == "install": install()
-        elif args.action == "verify": check_system(); verify()
-        else: launch(smoke=args.action == "smoke")
+        if args.action == "install":
+            install()
+        elif args.action == "verify":
+            check_system()
+            if not local_python_works() or not dependencies_ready() or not libraries_work() or not electron_ready():
+                raise RuntimeError("La instalacion local necesita reparacion.")
+            verify_java()
+        else:
+            launch(smoke=args.action == "smoke")
     except (OSError, RuntimeError, subprocess.CalledProcessError, zipfile.BadZipFile) as error:
         print(f"\n[ERROR] {error}\nLa operacion no se completo. Corregi el problema y volve a ejecutar Instalar.bat.", file=sys.stderr, flush=True)
         sys.exit(1)
