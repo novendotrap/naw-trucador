@@ -86,7 +86,7 @@ export default function ArchivosPage() {
           <button className="btn btn-secondary" disabled={busy} onClick={() => run(api.libraryReview, "Review")}>
             Revisar
           </button>
-          <button className="btn btn-secondary" disabled={busy} onClick={() => run(api.libraryDownload, "Download")}>
+          <button className="btn btn-secondary" disabled={busy || job?.running} onClick={() => run(api.libraryDownload, "Download")}>
             Descargar faltantes
           </button>
           <button className="btn btn-secondary" disabled={busy} onClick={() => run(api.libraryDumpMmo, "Dump MMO")}>

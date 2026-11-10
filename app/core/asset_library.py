@@ -604,11 +604,6 @@ def _download_one(rel: str, info: dict) -> dict:
 
 
 def download_missing(workers: int = 12) -> dict[str, Any]:
-    with _job_lock:
-        if _job["running"]:
-            return {"ok": False, "error": "Ya hay una descarga en curso."}
-    _set_job(running=True, kind="download", done=0, total=0, message="Revisando qué falta...", result=None)
-
     try:
         seed_mmo_if_missing()
         catalog = build_catalog()
@@ -688,21 +683,17 @@ def download_missing(workers: int = 12) -> dict[str, Any]:
 
 
 def start_download_async() -> dict[str, Any]:
-    with _job_lock:
-        if _job["running"]:
-            return {"ok": False, "error": "Ya hay una descarga en curso."}
-    threading.Thread(target=download_missing, daemon=True).start()
-    return {"ok": True}
+    return _start_library_job("download", "Revisando qué falta...", download_missing)
 
 
 def build_zip() -> dict[str, Any]:
-    root = library_dir()
-    dest = zip_path()
-    files = [p for p in root.rglob("*") if p.is_file() and p.suffix.lower() == ".swf"]
-    if not files:
-        return {"ok": False, "error": "No hay archivos para armar el zip."}
-    _set_job(running=True, kind="zip", done=0, total=len(files), message="Armando el zip...", result=None)
     try:
+        root = library_dir()
+        dest = zip_path()
+        files = [p for p in root.rglob("*") if p.is_file() and p.suffix.lower() == ".swf"]
+        if not files:
+            raise RuntimeError("No hay archivos para armar el zip.")
+        _set_job(total=len(files), message="Armando el zip...")
         with zipfile.ZipFile(dest, "w", compression=zipfile.ZIP_DEFLATED) as zf:
             for i, path in enumerate(files, 1):
                 zf.write(path, path.relative_to(root).as_posix())
@@ -721,9 +712,19 @@ def build_zip() -> dict[str, Any]:
         return result
 
 
-def start_zip_async() -> dict[str, Any]:
+def _start_library_job(kind, message, target) -> dict[str, Any]:
     with _job_lock:
         if _job["running"]:
             return {"ok": False, "error": "Esperá que termine lo que está corriendo."}
-    threading.Thread(target=build_zip, daemon=True).start()
-    return {"ok": True}
+        _job.update(running=True, kind=kind, done=0, total=0, message=message, result=None)
+        try:
+            threading.Thread(target=target, daemon=True).start()
+        except RuntimeError as exc:
+            result = {"ok": False, "error": str(exc)}
+            _job.update(running=False, message=str(exc), result=result)
+            return result
+        return {"ok": True, **_job}
+
+
+def start_zip_async() -> dict[str, Any]:
+    return _start_library_job("zip", "Preparando el zip...", build_zip)

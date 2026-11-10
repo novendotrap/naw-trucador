@@ -159,6 +159,10 @@ export default function ObjetosPage({
   const importRef = useRef(null);
   const [thumbStats, setThumbStats] = useState({ thumbs: 0, indexed: 0, packs: 0 });
   const [coverageData, setCoverageData] = useState(null);
+  const [library, setLibrary] = useState(null);
+  const [libraryJob, setLibraryJob] = useState(null);
+  const [startingDownload, setStartingDownload] = useState(false);
+  const missingPacks = library?.missing_by_category?.assets || 0;
   const [displayLimit, setDisplayLimit] = useState(80);
   const [indexer, setIndexer] = useState({
     running: false,
@@ -194,20 +198,76 @@ export default function ObjetosPage({
       .catch(() => {});
   };
 
-  useEffect(() => {
+  const refreshPacks = () => {
     api
       .listSwfs()
       .then((d) => setSwfs(d.swfs || d.items || []))
       .catch(() => toast.error("No se pudieron cargar los SWF"));
-    api.listClasses().then(setMambo).catch(() => {});
     api
       .listThemes()
       .then((d) => setThemeStats(d.themes || []))
       .catch(() => setThemeStats(THEMES.map((t) => ({ ...t, pack_count: 0 }))));
+  };
+
+  useEffect(() => {
+    refreshPacks();
+    api.listClasses().then(setMambo).catch(() => {});
+    api.libraryStatus().then((status) => {
+      setLibrary(status);
+      setLibraryJob((current) => current || status.job);
+    }).catch(() => {});
     refreshThumbStats();
     const t = setInterval(refreshThumbStats, 10000);
     return () => clearInterval(t);
   }, []);
+
+  const downloadRunning = libraryJob?.running && libraryJob.kind === "download";
+
+  useEffect(() => {
+    if (!downloadRunning) return undefined;
+    let active = true;
+    let timer;
+    const poll = async () => {
+      try {
+        const job = await api.libraryJob();
+        if (!active) return;
+        if (!job.running || job.kind !== "download") {
+          // Refresh after completion, including partial downloads.
+          const status = await api.libraryStatus();
+          if (!active) return;
+          setLibrary(status);
+          setLibraryJob(job);
+          refreshPacks();
+          refreshThumbStats();
+          if (job.result?.ok === false) toast.error(job.result.error);
+          else if (job.result?.failed) toast.error(job.message);
+          else toast.success(job.message || "Descarga terminada");
+          return;
+        }
+        setLibraryJob(job);
+      } catch {
+        // A failed status request should not interrupt the download.
+      }
+      if (active) timer = setTimeout(poll, 1200);
+    };
+    timer = setTimeout(poll, 1200);
+    return () => {
+      active = false;
+      clearTimeout(timer);
+    };
+  }, [downloadRunning]);
+
+  const downloadMissingPacks = async () => {
+    setStartingDownload(true);
+    try {
+      const job = await api.libraryDownload();
+      setLibraryJob(job);
+    } catch (error) {
+      toast.error(error.message || "No se pudo iniciar la descarga");
+    } finally {
+      setStartingDownload(false);
+    }
+  };
 
   useEffect(() => subscribeIndexer(setIndexer), []);
 
@@ -719,6 +779,27 @@ export default function ObjetosPage({
           .
         </div>
       </div>
+
+      {(missingPacks > 0 || downloadRunning) && (
+        <div className="card row" style={{ marginBottom: 12, flexWrap: "wrap" }}>
+          <div className="grow" role="status">
+            <strong>{downloadRunning ? "Descargando archivos" : `Faltan ${missingPacks} packs SWF`}</strong>
+            <div className="page-sub">
+              {downloadRunning
+                ? libraryJob.message || "Preparando descarga…"
+                : "Podés descargarlos acá. La lista se actualiza al terminar."}
+            </div>
+          </div>
+          <button
+            type="button"
+            className="btn btn-primary btn-sm"
+            onClick={downloadMissingPacks}
+            disabled={startingDownload || downloadRunning}
+          >
+            {startingDownload || downloadRunning ? "Descargando…" : "Descargar faltantes"}
+          </button>
+        </div>
+      )}
 
       <div className="image-search-bar app-no-drag">
         <Field
