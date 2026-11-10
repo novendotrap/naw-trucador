@@ -30,7 +30,9 @@ def run(args, **kwargs):
 
 
 def check_system():
-    if sysconfig.get_platform() != "win-amd64" or not (3, 12) <= sys.version_info[:2] <= (3, 14):
+    if (sysconfig.get_platform() != "win-amd64"
+            or not (3, 12) <= sys.version_info[:2] <= (3, 14)
+            or sysconfig.get_config_var("Py_GIL_DISABLED")):
         raise RuntimeError("Necesitas Python 3.12, 3.13 o 3.14 para Windows x64.")
     java = shutil.which("java")
     if not java:
@@ -50,7 +52,7 @@ def local_python_works():
         return False
     try:
         return subprocess.run(
-            [str(PYTHON), "-I", "-c", "import sys, sysconfig; assert (3,12) <= sys.version_info[:2] <= (3,14) and sysconfig.get_platform() == 'win-amd64'"],
+            [str(PYTHON), "-I", "-c", "import sys, sysconfig; assert (3,12) <= sys.version_info[:2] <= (3,14) and sysconfig.get_platform() == 'win-amd64' and not sysconfig.get_config_var('Py_GIL_DISABLED')"],
             capture_output=True,
         ).returncode == 0
     except OSError:

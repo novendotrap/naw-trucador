@@ -4,15 +4,15 @@ Herramienta de escritorio para Windows que permite explorar objetos de Mundo Gat
 
 ## Antes de instalar
 
-Instalá estas aplicaciones:
+Requisitos para usar el programa
 
 - **Windows 10 u 11 de 64 bits.** Esta distribución no está preparada para macOS, Linux ni Windows de 32 bits.
-- **Python 3.12, 3.13 o 3.14 para Windows x64.** Si ya tenés alguna de esas versiones, usá la que tenés. Los BAT buscan primero el Python local y también detectan instalaciones registradas aunque no estén en PATH. [Descargar Python](https://www.python.org/downloads/windows/).
+- **Python se prepara automáticamente.** Si ya tenés Python 3.12, 3.13 o 3.14 x64 estándar, se reutiliza. Si el BAT solo encuentra una versión incompatible o no encuentra Python, descarga una copia privada en `.runtime/` y conserva tu instalación global.
 - **Java 17 o superior**, disponible en PATH. Alcanza un runtime de Java; el helper del trucador ya está compilado. [Descargar Temurin 17](https://adoptium.net/temurin/releases/?version=17).
 - **El cliente de escritorio de Mundo Gaturro**, instalado en esa PC, para aplicar las modificaciones dentro del juego.
 - **Conexión a Internet** durante la instalación, para descargar recursos que falten y para jugar.
 
-Para comprobar Python y Java, abrí una terminal y ejecutá:
+Para comprobar Java y listar las instalaciones de Python si ya tenés el lanzador `py`, abrí una terminal y ejecutá:
 
 ```bat
 py -0p
@@ -61,7 +61,7 @@ Se excluyen sesiones, rutas personales del juego, certificados, logs, trucos gua
 
 ## Solución de problemas
 
-- **Python no encontrado:** si solo tenés Python 3.11 o anterior, instalá Python 3.12 x64 al lado del que ya usás. Las dependencias fijadas requieren Python 3.12 como mínimo.
+- **Falló la descarga de Python local:** revisá la conexión o instalá manualmente [Python 3.12, 3.13 o 3.14 para Windows x64](https://www.python.org/downloads/windows/).
 - **Java no encontrado:** instalá Java 17 y verificá `java -version`.
 - **Falló la instalación:** revisá la conexión y volvé a ejecutar `Instalar.bat`. No hace falta borrar tus datos.
 - **No encuentra Mundo Gaturro:** abrí el cliente del juego una vez y volvé a usar la herramienta. La ruta se detecta en esa PC; no se distribuye una ruta personal.
