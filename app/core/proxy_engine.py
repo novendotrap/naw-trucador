@@ -148,6 +148,12 @@ class ProxyEngine:
         self._pac_thread: Optional[threading.Thread] = None
         self._saved_autoconfig: Optional[str] = None
         self._mitm_reader: Optional[threading.Thread] = None
+        self._lifecycle_lock = threading.RLock()
+        self._mitm_readers = []
+        self._mitm_output = deque(maxlen=40)
+        self.last_error: Optional[str] = None
+        self._proxy_settings = None
+        self._applied_pac_url = None
         self._ensure_paths()
         atexit.register(self.stop)
 
@@ -297,13 +303,20 @@ class ProxyEngine:
         if self._pac_server is not None:
             self._pac_server.pac_bytes = pac_bytes
         if self.is_running and self.pac_port:
+            key = None
             try:
                 reg_path = r"Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-                key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, reg_path, 0, winreg.KEY_SET_VALUE)
-                winreg.SetValueEx(key, "AutoConfigURL", 0, winreg.REG_SZ, self._pac_url())
-                winreg.CloseKey(key)
+                key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, reg_path, 0, winreg.KEY_READ | winreg.KEY_SET_VALUE)
+                current, _ = winreg.QueryValueEx(key, "AutoConfigURL")
+                if current == self._applied_pac_url:
+                    applied = self._pac_url()
+                    winreg.SetValueEx(key, "AutoConfigURL", 0, winreg.REG_SZ, applied)
+                    self._applied_pac_url = applied
             except Exception:
                 pass
+            finally:
+                if key is not None:
+                    winreg.CloseKey(key)
             self._refresh_wininet()
         names = list_intercept_swfs()
         extra = f" · SWF a reescribir: {', '.join(names)}" if names else " · sin SWF trucado en cola"
@@ -371,58 +384,80 @@ class ProxyEngine:
         return f"http://127.0.0.1:{port}/proxy.pac?t={int(time.time())}"
 
     def set_system_proxy(self, enable: bool) -> bool:
-        """
-        Use a PAC so ONLY Lola and the tricked base pack hit mitmproxy.
-        Graphic packs, the rest of the game, and other apps go DIRECT.
-        """
+        """Temporarily apply our PAC and restore all settings we changed."""
+        names = ("ProxyEnable", "ProxyServer", "AutoDetect", "AutoConfigURL", "ProxyOverride")
+        key = None
         try:
             reg_path = r"Software\Microsoft\Windows\CurrentVersion\Internet Settings"
             key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, reg_path, 0, winreg.KEY_ALL_ACCESS)
             if enable:
+                if self._proxy_settings is None:
+                    saved = {}
+                    for name in names:
+                        try:
+                            saved[name] = winreg.QueryValueEx(key, name)
+                        except FileNotFoundError:
+                            saved[name] = None
+                    self._proxy_settings = saved
                 if not self._start_pac_server():
-                    winreg.CloseKey(key)
+                    self._proxy_settings = None
                     return False
-                try:
-                    current, _ = winreg.QueryValueEx(key, "AutoConfigURL")
-                    if current and "127.0.0.1" not in str(current):
-                        self._saved_autoconfig = str(current)
-                except FileNotFoundError:
-                    self._saved_autoconfig = None
-                # Igual que GitHub: solo PAC (ProxyEnable=0). No forzar ProxyServer
-                # a todo Windows — eso rompía el cliente / otras apps.
+                self._applied_pac_url = self._pac_url()
+                # Mark ownership before writing so partial failures can be rolled back.
                 winreg.SetValueEx(key, "ProxyEnable", 0, winreg.REG_DWORD, 0)
                 try:
                     winreg.DeleteValue(key, "ProxyServer")
                 except FileNotFoundError:
                     pass
                 winreg.SetValueEx(key, "AutoDetect", 0, winreg.REG_DWORD, 0)
-                winreg.SetValueEx(key, "AutoConfigURL", 0, winreg.REG_SZ, self._pac_url())
+                winreg.SetValueEx(key, "AutoConfigURL", 0, winreg.REG_SZ, self._applied_pac_url)
                 winreg.SetValueEx(key, "ProxyOverride", 0, winreg.REG_SZ, "<local>;localhost;127.*")
                 self.log(
                     f"PAC Windows OK → {self._pac_url()} · tráfico Mundo Gaturro al proxy :{self.port}",
                     "NETWORK",
                 )
             else:
-                winreg.SetValueEx(key, "ProxyEnable", 0, winreg.REG_DWORD, 0)
-                try:
-                    winreg.DeleteValue(key, "ProxyServer")
-                except FileNotFoundError:
-                    pass
-                if self._saved_autoconfig:
-                    winreg.SetValueEx(key, "AutoConfigURL", 0, winreg.REG_SZ, self._saved_autoconfig)
-                else:
+                if self._proxy_settings is not None:
                     try:
-                        winreg.DeleteValue(key, "AutoConfigURL")
+                        current, _ = winreg.QueryValueEx(key, "AutoConfigURL")
                     except FileNotFoundError:
-                        pass
+                        current = None
+                    # Do not overwrite changes made meanwhile by another proxy/VPN.
+                    if current == self._applied_pac_url:
+                        self._restore_proxy_settings(key)
+                    else:
+                        self.log("La configuración de red cambió fuera de naw; se conserva la configuración actual.", "WARN")
+                    self._proxy_settings = None
+                    self._applied_pac_url = None
                 self._stop_pac_server()
                 self.log("Proxy del juego desactivado.", "NETWORK")
-            winreg.CloseKey(key)
             self._refresh_wininet()
             return True
         except Exception as e:
+            if enable and key is not None and self._proxy_settings is not None:
+                try:
+                    self._restore_proxy_settings(key)
+                    self._proxy_settings = None
+                    self._applied_pac_url = None
+                    self._refresh_wininet()
+                except Exception as restore_error:
+                    self.log(f"No se pudo restaurar la configuración de red: {restore_error}", "ERROR")
             self.log(f"Error configurando el proxy: {e}", "ERROR")
             return False
+        finally:
+            if key is not None:
+                winreg.CloseKey(key)
+
+    def _restore_proxy_settings(self, key):
+        for name, previous in self._proxy_settings.items():
+            if previous is None:
+                try:
+                    winreg.DeleteValue(key, name)
+                except FileNotFoundError:
+                    pass
+            else:
+                value, kind = previous
+                winreg.SetValueEx(key, name, 0, kind, value)
 
     def is_system_proxy_enabled(self) -> bool:
         try:
@@ -432,19 +467,8 @@ class ProxyEngine:
                 auto, _ = winreg.QueryValueEx(key, "AutoConfigURL")
             except FileNotFoundError:
                 auto = ""
-            try:
-                enabled, _ = winreg.QueryValueEx(key, "ProxyEnable")
-            except FileNotFoundError:
-                enabled = 0
             winreg.CloseKey(key)
-            auto_s = str(auto or "")
-            if "127.0.0.1" in auto_s and ("/proxy.pac" in auto_s or "mg-proxy.pac" in auto_s):
-                return True
-            if self.ui_port and f"127.0.0.1:{self.ui_port}" in auto_s:
-                return True
-            if self.pac_port and f"127.0.0.1:{self.pac_port}" in auto_s:
-                return True
-            return bool(enabled == 1)
+            return bool(self._applied_pac_url and str(auto or "") == self._applied_pac_url)
         except Exception:
             return False
 
@@ -557,10 +581,10 @@ def request(flow: http.HTTPFlow) -> None:
             raw_desc = decoded if "decoded" in locals() and decoded else raw_text
         except Exception:
             raw_desc = raw_text
-        cat_m = re.search(r"catalog\s+([A-Za-z0-9_]+)", raw_desc or "", re.I)
-        ban_m = re.search(r"modal\.banner\s+([A-Za-z0-9_]+)", raw_desc or "", re.I)
-        room_m = re.search(r"room\.change\s+([0-9]+)", raw_desc or "", re.I)
-        mini_m = re.search(r"minigame\s+([A-Za-z0-9_]+)", raw_desc or "", re.I)
+        cat_m = re.search(r"catalog\\s+([A-Za-z0-9_]+)", raw_desc or "", re.I)
+        ban_m = re.search(r"modal\\.banner\\s+([A-Za-z0-9_]+)", raw_desc or "", re.I)
+        room_m = re.search(r"room\\.change\\s+([0-9]+)", raw_desc or "", re.I)
+        mini_m = re.search(r"minigame\\s+([A-Za-z0-9_]+)", raw_desc or "", re.I)
 
         if items_preview:
             items_txt = ", ".join(f"{{q}}x {{n}}" for q, n in items_preview[:8])
@@ -696,6 +720,7 @@ def request(flow: http.HTTPFlow) -> None:
                     text = (line or "").strip()
                     if not text:
                         continue
+                    self._mitm_output.append(text)
                     level = "MITM"
                     low = text.lower()
                     if "error" in low or "traceback" in low:
@@ -703,14 +728,72 @@ def request(flow: http.HTTPFlow) -> None:
                     elif "interceptado" in low or "swf override" in low:
                         level = "INTERCEPTADO"
                     self.log(f"[{label}] {text}", level)
-            except Exception:
-                pass
+            except Exception as error:
+                self.log(f"No se pudo leer la salida del proxy: {error}", "ERROR")
 
         for stream, label in ((proc.stdout, "mitm-out"), (proc.stderr, "mitm-err")):
             if stream is None:
                 continue
             t = threading.Thread(target=_read, args=(stream, label), daemon=True)
             t.start()
+            self._mitm_readers.append(t)
+
+    def _start_error(self, message: str) -> bool:
+        self.last_error = message
+        self.log(message, "ERROR")
+        return False
+
+    def _process_error(self, returncode=None, timed_out=False) -> str:
+        detail = " | ".join(list(self._mitm_output)[-6:])[-2400:]
+        low = detail.lower()
+        hint = ""
+        if "no module named" in low or "importerror" in low:
+            hint = " Ejecutá Instalar.bat en esta misma carpeta para revisar las dependencias."
+        elif "dll" in low or returncode in (3221225781, -1073741515):
+            hint = " Falta cargar una biblioteca nativa. Revisá el redistribuible Microsoft Visual C++ x64 y el detalle del error."
+        elif "10048" in low or "address already in use" in low:
+            hint = f" El puerto {self.port} fue ocupado por otro proceso; cerrá la otra aplicación de proxy."
+        elif "10013" in low or "permissionerror" in low or "access is denied" in low:
+            hint = " Windows rechazó el acceso al puerto o a un archivo. Revisá permisos y el bloqueo indicado por Windows."
+        elif "config.yaml" in low or "config.yml" in low:
+            hint = " Revisá la configuración de mitmproxy indicada en el error; no borres tus certificados."
+        if timed_out:
+            message = f"El proxy no abrió 127.0.0.1:{self.port} dentro de 20 segundos."
+        else:
+            message = f"El proceso del proxy terminó (código {returncode})."
+        return message + hint + (f" Detalle: {detail}" if detail else " No emitió detalles; revisá si Windows bloqueó el proceso.")
+
+    def _close_process(self, proc) -> None:
+        if proc is None:
+            return
+        try:
+            if proc.poll() is None:
+                proc.terminate()
+            proc.wait(timeout=2)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait(timeout=2)
+        finally:
+            for reader in self._mitm_readers:
+                reader.join(timeout=0.5)
+            self._mitm_readers = []
+            for stream in (proc.stdout, proc.stderr):
+                if stream:
+                    stream.close()
+
+    def _watch_process(self, proc) -> None:
+        code = proc.wait()
+        with self._lifecycle_lock:
+            if self.process is not proc:
+                return
+            for reader in self._mitm_readers:
+                reader.join(timeout=0.5)
+            self._start_error(self._process_error(code))
+            self.set_system_proxy(False)
+            self._stop_pac_server()
+            self.process = None
+            self.is_running = False
+            self._close_process(proc)
 
     def _reset_session_stats(self) -> None:
         try:
@@ -768,41 +851,57 @@ def request(flow: http.HTTPFlow) -> None:
             self.log(f"No se pudo leer AutoConfigURL: {e}", "ERROR")
 
     def start(self) -> bool:
+        with self._lifecycle_lock:
+            return self._start_locked()
+
+    def _start_locked(self) -> bool:
         if self.is_running and self.process and self.process.poll() is None:
             return True
+        # A dead previous child must not leave the Windows PAC pointing at it.
+        if self.process is not None:
+            self.stop()
+        self.last_error = None
+        self._mitm_output.clear()
+        try:
+            with socket.socket() as probe:
+                probe.bind(("127.0.0.1", self.port))
+        except OSError as error:
+            return self._start_error(f"No se puede usar el puerto local {self.port}: {error}. Cerrá la otra aplicación de proxy si está ocupado.")
 
         try:
-            with socket.create_connection(("127.0.0.1", self.port), timeout=0.2):
-                self.log(f"El puerto {self.port} está ocupado. Cerrá la otra aplicación de proxy antes de iniciar naw.", "ERROR")
-                return False
-        except OSError:
-            pass
-        cert_ok = self.ensure_cert()
-        self._write_addon_script()
-        self._reset_session_stats()
-
-        cmd = [
-            sys.executable, "-c", "from mitmproxy.tools.main import mitmdump; mitmdump()",
-            "--listen-port", str(self.port),
-            "-s", str(ADDON_SCRIPT_PATH),
-            "--allow-hosts", r".*mundogaturro.*",
-            "--quiet",
-        ]
-
-        try:
+            cert_ok = self.ensure_cert()
+            if not cert_ok:
+                return self._start_error("No se pudo preparar el certificado del proxy. Revisá el error [CERT] anterior; no se cambió el proxy de Windows.")
+            self._write_addon_script()
+            compile(ADDON_SCRIPT_PATH.read_text(encoding="utf-8"), str(ADDON_SCRIPT_PATH), "exec")
+            self._reset_session_stats()
+            cmd = [
+                sys.executable, "-I", "-u", "-X", "utf8", "-c",
+                "from mitmproxy.tools.main import mitmdump; mitmdump()",
+                "--listen-host", "127.0.0.1", "--listen-port", str(self.port),
+                "-s", str(ADDON_SCRIPT_PATH),
+                "--allow-hosts", r".*mundogaturro.*", "--quiet",
+            ]
+            env = dict(os.environ)
+            env["PYTHONIOENCODING"] = "utf-8:replace"
+            self.log(f"Iniciando proxy · Python {sys.version.split()[0]} · {sys.executable} · 127.0.0.1:{self.port}", "DIAG")
             self.process = subprocess.Popen(
                 cmd,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
+                encoding="utf-8",
+                errors="replace",
                 bufsize=1,
+                cwd=str(ROOT_DIR),
+                env=env,
                 creationflags=subprocess.CREATE_NO_WINDOW,
             )
             self._drain_mitm_pipes()
-            # Esperar a que el puerto escuche (suele ser <0.5s) en vez de sleep fijo 1.2s.
+            # Slow PCs may need more than three seconds to import native libraries.
             ready = False
-            deadline = time.time() + 3.0
-            while time.time() < deadline:
+            deadline = time.monotonic() + 20.0
+            while time.monotonic() < deadline:
                 if self.process.poll() is not None:
                     break
                 try:
@@ -812,26 +911,20 @@ def request(flow: http.HTTPFlow) -> None:
                 except OSError:
                     time.sleep(0.08)
             if self.process.poll() is not None or not ready:
-                self.log("Fallo al iniciar mitmdump (proceso salió al toque). Mirá líneas [mitm-err].", "ERROR")
-                try:
-                    if self.process and self.process.poll() is None:
-                        self.process.terminate()
-                except Exception:
-                    pass
+                code = self.process.poll()
+                self._close_process(self.process)
                 self.process = None
-                return False
+                return self._start_error(self._process_error(code, timed_out=code is None))
 
             self.is_running = True
             pac_ok = self.set_system_proxy(True)
             if not pac_ok:
-                self.log("mitmdump está up pero NO se pudo aplicar el PAC de Windows.", "ERROR")
-                try:
-                    self.process.terminate()
-                except Exception:
-                    pass
+                self.set_system_proxy(False)
+                self._stop_pac_server()
+                self._close_process(self.process)
                 self.process = None
                 self.is_running = False
-                return False
+                return self._start_error("El proxy arrancó, pero Windows no permitió aplicar su configuración PAC. Revisá el error de configuración anterior.")
 
             self._log_startup_diagnostics()
             if not cert_ok:
@@ -841,41 +934,29 @@ def request(flow: http.HTTPFlow) -> None:
                 f"hablá con Lola y en Logs tiene que aparecer [INTERCEPTADO] / [MG-HIT].",
                 "SUCCESS",
             )
+            threading.Thread(target=self._watch_process, args=(self.process,), daemon=True).start()
             return True
         except Exception as e:
-            self.log(f"Excepcion al iniciar proxy: {e}", "ERROR")
-            return False
+            self.stop()
+            return self._start_error(f"No se pudo iniciar el proxy: {type(e).__name__}: {e}")
 
     def stop(self) -> bool:
-        if self.process is None and not self.is_running and self._pac_server is None:
+        with self._lifecycle_lock:
+            return self._stop_locked()
+
+    def _stop_locked(self) -> bool:
+        if self.process is None and not self.is_running and self._pac_server is None and self._proxy_settings is None:
             return True
-        self.set_system_proxy(False)
+        network_restored = self.set_system_proxy(False)
         self._stop_pac_server()
         proc = self.process
         self.process = None
         if proc is not None:
-            try:
-                proc.terminate()
-            except Exception:
-                pass
-            try:
-                proc.wait(timeout=1.5)
-            except Exception:
-                try:
-                    proc.kill()
-                except Exception:
-                    pass
-            # Drop pipe handles so reader threads can exit on Windows.
-            for stream in (proc.stdout, proc.stderr):
-                try:
-                    if stream:
-                        stream.close()
-                except Exception:
-                    pass
+            self._close_process(proc)
 
         self.is_running = False
         self.log("Proxy detenido.", "INFO")
-        return True
+        return network_restored
 
     def get_status(self) -> Dict[str, Any]:
         running = bool(self.is_running and self.process and self.process.poll() is None)
@@ -895,6 +976,7 @@ def request(flow: http.HTTPFlow) -> None:
         last_mg_ago = _ago("last_mg_hit_at")
         return {
             "running": running,
+            "last_error": self.last_error,
             "port": self.port,
             "system_proxy_enabled": self.is_system_proxy_enabled(),
             "pac_url": self._pac_url() if self.pac_port else "",

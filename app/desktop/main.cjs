@@ -2,6 +2,7 @@ const { app, BrowserWindow, shell } = require("electron");
 const path = require("path");
 const http = require("http");
 const { spawn } = require("child_process");
+const { stopProxy } = require("./proxy_shutdown.cjs");
 
 const ROOT = path.resolve(__dirname, "..");
 app.setPath("userData", path.resolve(ROOT, "..", ".runtime", "profile"));
@@ -18,6 +19,8 @@ const IS_DEV = process.argv.includes("--dev") || process.env.NAW_DEV === "1";
 let mainWindow = null;
 let flaskProcess = null;
 let shuttingDown = false;
+let cleanupStarted = false;
+let cleanupFinished = false;
 
 function findPython() {
   if (process.env.PYTHON) return process.env.PYTHON;
@@ -205,12 +208,26 @@ app.whenReady().then(async () => {
 });
 
 app.on("window-all-closed", () => {
-  shuttingDown = true;
-  killFlaskTree();
   if (process.platform !== "darwin") app.quit();
 });
 
-app.on("before-quit", () => {
+app.on("before-quit", (event) => {
+  if (!HAS_LOCK || cleanupFinished) return;
+  event.preventDefault();
+  if (cleanupStarted) return;
+  cleanupStarted = true;
   shuttingDown = true;
-  killFlaskTree();
+  (async () => {
+    try {
+      if (await isFlaskUp() && !await stopProxy(FLASK_URL)) {
+        console.error("[proxy] No se pudo confirmar la restauración de la red al cerrar. Revisá Logs.");
+      }
+    } catch (error) {
+      console.error("[proxy] cleanup:", error);
+    } finally {
+      killFlaskTree();
+      cleanupFinished = true;
+      app.quit();
+    }
+  })();
 });

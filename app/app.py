@@ -93,15 +93,15 @@ def api_proxy_start():
     ok = proxy_engine.start()
     err = None
     if not ok:
-        logs = proxy_engine.get_logs(5)
-        err = logs[-1] if logs else "No se pudo iniciar el proxy"
+        err = proxy_engine.last_error or "No se pudo iniciar el proxy. Revisá Logs."
     return jsonify({"ok": ok, "error": err, "status": proxy_engine.get_status()})
 
 
 @app.route("/api/proxy/stop", methods=["POST"])
 def api_proxy_stop():
     ok = proxy_engine.stop()
-    return jsonify({"ok": ok, "status": proxy_engine.get_status()})
+    return jsonify({"ok": ok, "status": proxy_engine.get_status(),
+                    "error": None if ok else "El proxy se detuvo, pero no se pudo restaurar la configuración de red. Revisá Logs."})
 
 
 @app.route("/api/game/launch", methods=["POST"])
@@ -213,7 +213,7 @@ def api_quick_start():
     if not proxy_engine.get_status().get("running"):
         proxy_started = proxy_engine.start()
         if not proxy_started:
-            return jsonify({"ok": False, "error": "No se pudo iniciar el proxy mitmproxy. Mirá la pestaña Logs."})
+            return jsonify({"ok": False, "error": proxy_engine.last_error or "No se pudo iniciar el proxy. Revisá Logs."})
 
     st = proxy_engine.get_status()
     if not st.get("system_proxy_enabled"):

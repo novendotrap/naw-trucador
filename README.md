@@ -51,6 +51,10 @@ La herramienta usa un proxy local para reemplazar los recursos que recibe el cli
 
 Cerrá el juego y detení el proxy desde la aplicación al terminar. No ejecutes dos herramientas de proxy en el mismo puerto: naw avisa si el puerto está ocupado.
 
+El inicio espera hasta 20 segundos al proceso del proxy. Si falla, tanto **Iniciar proxy** como **Abrir MG aplicado** muestran el motivo disponible y el código de salida, en lugar de un aviso genérico. En **Logs** queda la salida del proceso, incluso con nombres de usuario o carpetas con acentos.
+
+El proxy escucha solo en `127.0.0.1`. Al detenerlo, al detectar que se cerró inesperadamente o al salir normalmente de la ventana, la aplicación intenta restaurar los valores de proxy de Windows que tenía antes de iniciarse. Si otra aplicación cambió el PAC mientras tanto, conserva ese cambio. Un cierre forzado de Windows o del Administrador de tareas puede impedir esta limpieza.
+
 ## Qué contiene esta distribución
 
 En la raíz están los dos iniciadores y este README. El código, la interfaz compilada, los catálogos iniciales, Ruffle y FFDec están dentro de **`app/`**.
@@ -68,5 +72,6 @@ Se excluyen sesiones, rutas personales del juego, certificados, logs, trucos gua
 - **No aparecen objetos o miniaturas:** descargá los packs faltantes en Archivos y dejá completar el índice.
 - **Actualizaste desde un ZIP:** extraé los archivos nuevos sobre tu carpeta existente si querés conservar el entorno y los datos locales. Una carpeta nueva prepara su propio entorno.
 - **Puerto web ocupado:** el iniciador busca un puerto local libre entre 5500 y 5519. El proxy del juego usa 8080.
+- **El proxy no inicia:** copiá el error completo y las líneas `[mitm-err]` / `[mitm-out]` de Logs. Un error de dependencia indica ejecutar `Instalar.bat` en esa misma carpeta; un puerto ocupado requiere cerrar la otra aplicación que lo usa. No hace falta borrar tus datos ni certificados para diagnosticarlo.
 
 Para modificar y recompilar la interfaz, consultá [la guía de desarrollo](app/DEVELOPMENT.md). Los componentes incluidos y sus avisos están en [THIRD_PARTY.md](app/THIRD_PARTY.md).
